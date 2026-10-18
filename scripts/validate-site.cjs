@@ -9,9 +9,9 @@ const s=read(f);assert.doesNotMatch(s,/(?<!seoripul_)\b(?:news_posts|notice_post
 assert.doesNotMatch(s,/seoripul_seoripul_/);
 }
 assert.match(read('header-auth.js'),/news_admins/);assert.match(read('header-auth.js'),/membership_ready/);
-const reg=JSON.parse(read('post-routes.json'));for(const b of Object.values(reg.boards)){assert.deepEqual(b.posts,{});assert.equal(b.next,1)}
-assert.deepEqual(JSON.parse(read('share/manifest.json')),{});
+const reg=JSON.parse(read('post-routes.json'));for(const b of Object.values(reg.boards)){assert.ok(b.next>=1);const values=Object.values(b.posts);assert.equal(new Set(values).size,values.length);if(process.env.INITIAL_CLONE==='1'){assert.deepEqual(b.posts,{});assert.equal(b.next,1)}}
+if(process.env.INITIAL_CLONE==='1')assert.deepEqual(JSON.parse(read('share/manifest.json')),{});
 for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){const s=read(f);assert.doesNotMatch(s,/angangjin\.saevit\.online|안강진|송은석/,f);for(const m of s.matchAll(/(?:src|href)="([^"#?]+)(?:\?[^"#]*)?(?:#[^"]*)?"/g)){const u=m[1];if(/^(?:https?:|data:|\/\/|mailto:|tel:|#)/.test(u)||u==='#none')continue;const p=path.resolve(root,u.replace(/^\//,''));assert.ok(p.startsWith(root));assert.ok(fs.existsSync(p),f+' missing '+u)}}
 const setup=read('supabase/seoripul-setup.sql');assert.doesNotMatch(setup,/drop policy if exists (?:news|photo|notice|publication)_files_/);assert.doesNotMatch(setup,/insert into public\.post_route_(?:counters|numbers) values\('(?:angangjin|geumseong)'/);
-console.log('Syntax, local links, photo picker, database isolation and empty routes passed');
+console.log('Syntax, local links, photo picker, database isolation and permanent route registry passed');
 
