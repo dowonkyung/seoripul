@@ -5,7 +5,7 @@
  let file=asset;if(asset.previewFile)file={file:asset.previewFile,file_name:asset.previewFile.name};else if(asset.preview_path)file={storage_path:asset.preview_path,file_name:'미리보기.pdf'};
  const blob=await store.blob(file),ext=store.ext(file.file_name);host.replaceChildren();
  if(['png','jpg','jpeg','webp','gif'].includes(ext)){const img=document.createElement('img');img.src=URL.createObjectURL(blob);img.alt=asset.file_name;img.className='preview-image';host.append(img)}
- else if(ext==='pdf'){const {renderPDF}=await import('./pdf-preview.mjs');await renderPDF(host,blob)}
+ else if(ext==='pdf'){const {renderPDF}=await import('./pdf-preview.mjs?v=20261019-mobile');await renderPDF(host,blob)}
  else if(ext==='txt'){const pre=document.createElement('pre');pre.className='preview-text';pre.textContent=await blob.text();host.append(pre)}
  else if(ext==='hwp'){
   const buffer=await blob.arrayBuffer();if(![208,207,17,224,161,177,26,225].every((value,index)=>new Uint8Array(buffer)[index]===value))throw Error('이 파일은 지원되는 한글 5 문서가 아닙니다. 원본을 다운로드하거나 작성자에게 미리보기 PDF 등록을 요청해 주세요.');
