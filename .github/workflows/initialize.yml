@@ -1,0 +1,64 @@
+name: Initialize and verify Seoripul website
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/bootstrap-seoripul.cjs', 'scripts/finish-seoripul.cjs', '.github/workflows/initialize.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  initialize:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: test-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      PGPASSWORD: test-only
+      PGHOST: localhost
+      PGUSER: postgres
+      PGDATABASE: postgres
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          repository: dowonkyung/angangjin
+          ref: 2cb4dc8a7fd3bfe54a1b2628150298363cfc3f8a
+          path: _source
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Copy full site and isolate content
+        run: |
+          if [ ! -f site-config.json ]; then
+            node scripts/bootstrap-seoripul.cjs
+            node scripts/finish-seoripul.cjs
+            python -m pip install Pillow
+            python scripts/create-placeholder-preview.py
+          fi
+          node scripts/sync-navigation.cjs
+          node scripts/validate-site.cjs
+      - name: Verify migration, authorization and permanent numbers
+        run: |
+          psql -v ON_ERROR_STOP=1 -f scripts/test-seoripul-fixture.sql
+          psql -v ON_ERROR_STOP=1 -f _source/supabase/schema.sql
+          psql -v ON_ERROR_STOP=1 -f _source/supabase/home-banners.sql
+          psql -v ON_ERROR_STOP=1 -f _source/supabase/instant-post-numbers.sql
+          psql -v ON_ERROR_STOP=1 -f scripts/test-seoripul-checks.sql
+      - name: Publish verified website source
+        run: |
+          git add . ':!_source'
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Create isolated Seoripul municipal website from verified Angangjin source"
+          git pull --rebase origin main
+          git push
+
