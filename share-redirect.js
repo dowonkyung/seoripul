@@ -1,0 +1,1 @@
+const target=document.querySelector('a[data-post-link]');if(target)location.replace(target.href);

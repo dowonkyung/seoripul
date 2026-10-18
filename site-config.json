@@ -1,0 +1,16 @@
+{
+  "site": "seoripul",
+  "name": "금성도 서리풀구",
+  "domain": "seoripul.saevit.online",
+  "brandingStatus": "provisional",
+  "mayorName": null,
+  "address": null,
+  "colors": {
+    "primary": "#2A5CAA",
+    "secondary": "#F04E4C"
+  },
+  "source": {
+    "repository": "dowonkyung/angangjin",
+    "commit": "2cb4dc8a7fd3bfe54a1b2628150298363cfc3f8a"
+  }
+}

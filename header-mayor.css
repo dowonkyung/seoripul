@@ -1,0 +1,89 @@
+/* The reference's header and mayor CSS is preserved in reference-layout.css.
+   These rules adapt only branding, the three requested menus, and standalone page layout. */
+.hd-element{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%);white-space:nowrap}
+header ul,.mayor-section ul{list-style:none;padding:0;margin:0}header h1,.mayor-section dl,.mayor-section dd{margin:0}header a{cursor:pointer}header .inner{max-width:1400px;padding:0}header nav{display:block;flex:initial;justify-content:initial}header [hidden]{display:none!important}header .drop-menu:not([hidden]),header .header-search:not([hidden]){display:block}
+.header-top span{background-image:url('assets/saevit-flag.svg');background-size:24px 16px;display:inline-block}
+header .header-middle .bottom-menu .logo h1 a{background-image:url('assets/seoripul-logo.svg');background-position:center;background-size:contain;width:180px;height:50px}
+header .header-bottom nav>ul{justify-content:flex-start}header .header-bottom nav>ul>li>a{border:0;line-height:1.6}
+header .gnb-wrap{display:none}header #gnb>ul>li.active>.gnb-wrap{display:block}
+header .top-menu .drop-menu{z-index:20;background:white}header .top-menu .drop-menu ul li>a{white-space:nowrap}header .etc-menu img{width:24px;height:24px}header .etc-menu #menuAll img{width:24px;height:24px}header .etc-menu i{display:inline-block;line-height:0}header .header-search input{font:inherit}header .header-search{z-index:30}header .top-menu .parliament img{vertical-align:middle;margin-left:4px}header .zoom-reset img{width:16px;height:16px}
+header .header-bottom.all-open{display:block}header .header-bottom.all-open #gnb>ul>li>.gnb-wrap{display:block;position:static;border:0;box-shadow:none}header .header-bottom.all-open #gnb>ul{display:block}header .header-bottom.all-open #gnb>ul>li>a{border-bottom:1px solid #ddd}header .header-bottom.all-open #gnb>ul>li>.gnb-wrap .inner{max-width:1400px}
+.mayor-section{min-height:710px;background-color:#234e86;background-blend-mode:luminosity}.mayor-section>.inner{position:relative;max-width:1400px;width:100%;padding:100px 0}.mayor-section .inner::after{pointer-events:none}.mayor-section .top{grid-template-columns:initial;align-items:stretch}.mayor-section .mayor-info{min-width:0}.mayor-section .mayor-info::before{background-image:var(--mayor-portrait)!important}.mayor-section .top .mayor-info dl dt{font-size:30px;word-break:keep-all}.mayor-section .top .mayor-info dl dd{font-size:22px;line-height:1.6}.mayor-section .top .mayor-info ul{margin-top:24px}.mayor-section .top .mayor-info ul li a{font-size:17px;padding-left:15px;white-space:nowrap}.mayor-section .top .mayor-info ul li a span{padding-right:20px}.mayor-section .top .mayor-banner{flex-shrink:0}.mayor-section .top .mayor-banner .mySwiper{width:100%;background:#e8f1fd}.mayor-section .top .mayor-banner .swiper-slide img{display:block;object-fit:cover}.mayor-section .top .slide-control{display:flex;align-items:center;gap:15px}.mayor-section .slide-control .swiper-button-prev,.mayor-section .slide-control .swiper-button-next{position:static;margin:0;transform:none}.mayor-section .slide-control button::after{display:none}.mayor-section .slide-control .swiper-pagination{position:static;width:auto;transform:none}.mayor-section .mayor-service3{position:relative;z-index:1;text-align:center;padding-top:15px}.mayor-section .mayor-service3 img{display:block;width:min(100%,1200px);height:auto;margin:auto}
+@media(min-width:1024px) and (max-width:1439px){header .inner{padding:0 24px}.mayor-section>.inner{padding:90px 24px}.mayor-section .top{gap:24px}.mayor-section .top .mayor-banner{width:38%}.mayor-section .top .mayor-info::before{width:330px;top:0}.mayor-section .top .mayor-info dl{margin-left:310px}.mayor-section .top .mayor-info dl dt{font-size:24px}.mayor-section .top .mayor-info dl dd{font-size:17px}.mayor-section .top .mayor-info ul li a{font-size:14px;padding:17px 8px}.mayor-section .top .mayor-info ul li a span{padding-right:0;background:none}.mayor-section .top .mayor-info ul li a::before{width:19px;height:19px;background-size:contain}}
+@media(max-width:1023px){body{padding-top:104px}header{position:fixed!important}.header-top{min-height:32px}.header-top span{font-size:12px}.header-top .inner{padding:0!important}header .header-middle .bottom-menu .logo h1 a{width:120px;height:42px}header .etc-menu li>a{display:block!important}header .header-bottom.all-open{height:100dvh;overflow-y:auto}header .header-bottom.all-open>.inner{height:auto;overflow:visible}header .header-bottom.all-open nav{display:block;height:calc(100dvh - 190px)}header .header-bottom.all-open #gnb>ul{display:block}header .header-bottom.all-open #gnb>ul>li>.gnb-wrap{display:none;position:absolute;top:0;left:145px;width:calc(100% - 145px);height:100%;overflow:auto;background:white}header .header-bottom.all-open #gnb>ul>li.active>.gnb-wrap{display:block}header .gnb-wrap .inner{padding:0!important}.mayor-section{min-height:0;margin-top:0!important}.mayor-section>.inner{padding:60px 24px}.mayor-section .top .mayor-info::before{display:none!important;content:none;background-image:none!important}.mayor-section .top .mayor-info dl{margin-left:55%}.mayor-section .top .mayor-info dl dt{padding:0;font-size:24px}.mayor-section .top .mayor-info dl dd{font-size:17px}.mayor-section .top .mayor-info ul{margin:0}.mayor-section .top .mayor-info ul li a{font-size:15px;padding:16px 8px}.mayor-section .top .mayor-info ul li a::before{width:20px;height:20px;background-size:contain}}
+@media(max-width:767px){.header-top span{font-size:10px;padding-left:27px;background-size:21px 14px}header .etc-menu li>a{font-size:12px!important}.mayor-section>.inner{padding:40px 16px}.mayor-section .top{display:flex;flex-direction:column;gap:0;padding:0}.mayor-section .top .mayor-info{display:flex;position:relative;padding:65px 0 0;min-height:310px;order:2;flex:initial;width:100%}.mayor-section .top .mayor-info::before{width:215px;height:250px;top:15px;left:-28px}.mayor-section .top .mayor-info dl{margin:0 0 12px 140px;min-height:150px}.mayor-section .top .mayor-info dl dt{font-size:21px}.mayor-section .top .mayor-info dl dd{font-size:14px}.mayor-section .top .mayor-info ul{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.mayor-section .top .mayor-info ul li a{font-size:15px;padding:10px}.mayor-section .top .mayor-banner{width:100%;order:1;display:flex;flex-direction:column}.mayor-section .top .mayor-banner .mySwiper{height:auto;aspect-ratio:529/300}.mayor-section .top .slide-control{margin:15px 0 0;order:2}.mayor-section .mayor-service3{padding:20px 0 0}.mayor-section .mayor-service3 img{width:100%;min-height:80px;object-fit:contain}}
+
+/* Center each mayor menu icon and label as a single group. */
+.mayor-section .top .mayor-info ul li a{display:flex;align-items:center;justify-content:center;gap:4px;padding-left:8px;padding-right:8px;text-align:center;height:100%}
+.mayor-section .top .mayor-info ul li a::before{flex-shrink:0;margin-right:0;background-position:center}
+
+/* Direct links have no expandable-submenu arrow. */
+header .gnb-wrap.type-depth3 .wrap>ul>li>a:not([aria-expanded])::before{display:none;background:none}
+
+/* Anchor the visible portrait to the slogan even when its box becomes narrower. */
+@media(min-width:1024px){.mayor-section .top .mayor-info::before{top:auto!important;bottom:0!important;background-position:left bottom!important;background-size:contain}}
+
+/* Dim only the page below the open header menu. */
+header{z-index:1100!important}.gnb-dim{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.42)}.gnb-dim[hidden]{display:none!important}
+header .header-search-close{position:absolute;top:20px;right:24px;width:32px;height:32px;padding:0;font-size:30px;line-height:1}
+@media(min-width:1024px){header .etc-menu .total-search{display:none!important}header .header-search:not([hidden]){display:flex;margin-right:0;width:285px;gap:8px;padding:5px 6px 5px 14px;height:40px}header .header-search input{display:block;flex:1;min-width:0;width:auto;height:30px;min-height:0;border:0;background:transparent;padding:0;font-size:15px;outline:none}header .header-search:focus-within{box-shadow:inset 0 0 0 2px #111}header .header-search .header-search-btn{display:block;flex:0 0 30px}header .header-search-close{display:none}}
+@media(max-width:1023px){header .header-search p{margin:0 0 16px}header .header-search .header-search-btn{display:block}header .header-search-close{display:block}}
+@media(min-width:1024px){header .etc-menu .header-search input{height:30px;min-height:0;border:0;border-radius:0;background:transparent;padding:0;font-size:15px}}
+
+/* Keep the detail side white even before a submenu has been selected. */
+@media(min-width:1024px){header .gnb-wrap.type-depth3 .inner{background-color:#fff}header .gnb-wrap.type-depth3 .wrap{background:linear-gradient(to right,#eef2f7 0,#eef2f7 266px,#fff 266px,#fff 100%)}}
+
+/* Keep the screen-size popover above the search row. */
+header .header-middle .top-menu{position:relative;z-index:40}
+header .top-menu #zoom-menu{z-index:50;width:188px;padding:8px;border:1px solid #cdd1d5;border-radius:8px;background:#fff;box-sizing:border-box}
+header #zoom-menu ul li>a{display:flex;align-items:center;gap:8px;min-height:50px;padding:8px 9px;box-sizing:border-box;font-size:17px;color:#052b57;text-align:left}
+header #zoom-menu [data-zoom]:not(.zoom-reset)::before{content:"가";display:grid;place-items:center;flex:none;width:28px;height:30px;border:1px solid #cdd1d5;border-radius:4px;background:#fff;color:#052b57;font-weight:400;line-height:1}
+header #zoom-menu [data-zoom="0.9"]::before{width:20px;height:22px;font-size:16px}
+header #zoom-menu [data-zoom="1"]:not(.zoom-reset)::before{width:24px;height:26px;font-size:20px}
+header #zoom-menu [data-zoom="1.1"]::before{font-size:24px}
+header #zoom-menu [data-zoom="1.2"]::before{width:32px;height:34px;font-size:27px}
+header #zoom-menu [data-zoom="1.3"]::before{width:36px;height:38px;font-size:30px}
+header #zoom-menu a.active:not(.zoom-reset){background:#eef2f7;font-weight:700}
+header #zoom-menu a.active:not(.zoom-reset)::before{background:#052b57;border-color:#052b57;color:#fff;font-weight:700}
+header #zoom-menu li:has(.zoom-reset){margin-top:12px;padding-top:8px;border-top:1px solid #d8d8d8}
+header #zoom-menu a.zoom-reset{justify-content:center;gap:4px}
+
+/* Original mobile whole-menu: fixed login header, category rail, and scrollable children. */
+@media only screen and (max-width:63.99em){
+ html.mobile-menu-open{overflow:hidden}
+ header .header-bottom.all-open{position:fixed;inset:0;width:100%;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:#fff;border:0;z-index:99999}
+ header .header-bottom.all-open .mobile-top{display:block;flex:none;padding:14px 16px}
+ header .header-bottom.all-open .mobile-top .mobile-login{margin:104px 0 16px}
+ header .header-bottom.all-open .mobile-close{top:76px;right:16px}
+ header .header-bottom.all-open>.inner{width:100%;flex:1;min-height:0;height:auto;padding:0!important;overflow:hidden}
+ header .header-bottom.all-open nav#gnb{display:block;position:relative;width:100%;height:100%;background:#eef2f7;overflow:hidden}
+ header .header-bottom.all-open #gnb>ul{display:block;height:100%;width:145px;overflow-y:auto;overscroll-behavior:contain}
+ header .header-bottom.all-open #gnb>ul>li>a{width:145px;height:58px;display:flex;align-items:center;line-height:1.5;padding:0 24px;font-size:17px;border:0;white-space:normal}
+ header .header-bottom.all-open #gnb>ul>li.active>a{background:#fff;color:#052b57}
+ header .header-bottom.all-open #gnb>ul>li:not(.active)>.gnb-wrap{display:none}
+ header .header-bottom.all-open #gnb>ul>li.active>.gnb-wrap{display:block;position:absolute;top:0;bottom:0;left:145px;right:0;width:calc(100% - 145px);height:100%;min-height:0;margin:0;border:0;background:#fff;overflow-y:auto;overscroll-behavior:contain;box-shadow:none}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .inner{height:auto;min-height:100%;padding:0!important;background:#fff}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .wrap{height:auto;min-height:0;padding:0 16px 16px;background:#fff}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .wrap>ul>li>a{width:100%;height:auto;min-height:56px;padding:16px 0;font-size:19px;font-weight:700;line-height:1.5;border-bottom:1px solid #8a949e;border-radius:0;background:#fff;white-space:normal}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .wrap>ul>li>a::before{display:none}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .wrap>ul>li .depth3-wrap{display:block;position:static;min-height:0;padding:8px 0;background:#fff}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .depth3-wrap .tit{display:none}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .depth3-wrap>ul{display:block}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .depth3-wrap>ul>li{width:100%;margin:0}
+ header .header-bottom.all-open .gnb-wrap.type-depth3 .depth3-wrap>ul>li>a{display:block;width:100%;padding:10px 4px;font-size:17px;line-height:1.5;border:0;white-space:normal}
+ html.mobile-menu-open header .header-middle .top-menu{display:flex;position:fixed;top:70px;left:16px;right:56px;z-index:100000;justify-content:flex-start;gap:20px;margin:0;padding:4px 0;background:#fff}
+ html.mobile-menu-open header .top-menu>li:first-child{display:none}
+ html.mobile-menu-open header .top-menu>li>a{font-size:15px}
+}
+
+/* District slogan frame. */
+#mayor-slogan{border-radius:20px;border:1px solid #FFF;box-sizing:border-box}
+
+/* Align search, login and all-menu controls on one vertical center. */
+header .header-middle .etc-menu{align-items:center}
+@media(min-width:1024px){header .header-middle .etc-menu>li{display:flex;align-items:center}header .header-middle .etc-menu .header-search:not([hidden]){align-items:center}}
+
+/* Current municipal page: preserve link color and emphasize weight only. */
+header #gnb:not(:has(>ul>li.active))>ul>li.current-section>a{color:#063A74;font-weight:700}header #gnb .gnb-wrap .wrap>ul>li.current-item.active>a{background:#fff;font-weight:700}header #gnb .gnb-wrap a[aria-current="page"]{font-weight:700;text-decoration:none}header #gnb .depth3-wrap li>a[aria-current="page"]{background:#EEF2F7;border-radius:6px}
+
+@media only screen and (min-width:64em){header #gnb .gnb-wrap.type-depth3 .wrap>ul>li>a{font-size:18px}}

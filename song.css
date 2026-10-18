@@ -1,0 +1,24 @@
+/* Original 시민의 노래 layout: audio and downloads above the full score. */
+.song-page .content-body{margin-top:48px;padding-bottom:48px}
+.song-page .citySong{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.song-page .audioArea{min-width:0}
+.song-page audio{display:block;width:300px;max-width:100%;height:54px}
+.song-page .citySong .btn-wrap{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.song-page .citySong .btn-wrap a{width:auto;min-height:32px;padding:5px 8px;border-radius:4px;font-size:15px;white-space:nowrap}
+.song-page .citySong .btn-wrap i{display:inline-flex;align-items:center;line-height:0}
+.song-page .citySong .btn-wrap img{width:16px;height:16px}
+.song-page .img-line{border-radius:12px;border:1px solid #b1b8be;padding:27px;text-align:center;margin-top:20px;position:relative}
+.song-page .img-line>img{display:block;width:100%;max-width:600px;height:auto;margin:0 auto}
+.song-page .img-line .img-more{display:none}
+.song-page .audio-help{font-size:15px;line-height:1.6;color:#464c53;margin-top:12px}
+@media only screen and (max-width:47.99em){
+ .song-page .content-body{margin-top:40px}
+ .song-page .citySong{flex-wrap:wrap}
+ .song-page .audioArea{width:100%}
+ .song-page audio{max-width:100%}
+ .song-page .citySong .btn-wrap{flex:1 1 100%;text-align:right}
+ .song-page .img-line .img-more{display:block;position:absolute;bottom:10px;right:10px;z-index:1;width:45px;height:45px;background:#fff;border:1px solid #cdd1d5;border-radius:50%;box-shadow:0 1px 4px #0001}
+ .song-page .img-line .img-more>a{display:grid;place-items:center;width:100%;height:100%}
+ .song-page .img-more svg{width:24px;height:24px}
+}
+@media print{.song-page .citySong,.song-page .img-more{display:none!important}.song-page .content-body{margin:0;padding:0}.song-page .img-line{border:0;padding:0;margin:0}.song-page .img-line>img{width:100%;max-height:245mm;object-fit:contain}}

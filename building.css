@@ -1,0 +1,10 @@
+.building-page .content-body{margin-top:48px;padding-bottom:48px}
+.building-page .content-section h4{font-size:24px;line-height:1.5;font-weight:700;color:#1E2124;margin:0 0 24px}
+.building-page .table-wrapper{width:100%}
+.building-page .content-table{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;border-top:1px solid #CDD1D5;font-size:17px;line-height:1.5}
+.building-page .content-table th,.building-page .content-table td{padding:12px 10px;text-align:center;border:1px solid #CDD1D5;border-width:0 1px 1px 0;color:#464C53;word-break:keep-all;overflow-wrap:anywhere}
+.building-page .content-table tr>:last-child{border-right:0}
+.building-page .content-table th{background:#EEF2F7;color:#131416;font-weight:700}
+.building-page .content-table td{background:#fff;font-weight:400}
+@media(max-width:47.99em){.building-page .content-body{margin-top:40px}.building-page .content-section h4{font-size:19px}.building-page .content-table{font-size:15px}.building-page .content-table col:first-child{width:24%!important}.building-page .content-table col:last-child{width:76%!important}}
+@media print{.building-page .content-body{margin:0;padding:0}.building-page .content-table tr{break-inside:avoid}}

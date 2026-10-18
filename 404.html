@@ -1,0 +1,14 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>게시글 불러오기</title></head><body><p role="status">게시글을 불러오는 중입니다.</p><script>
+(async()=>{
+const match=/^\/([a-z-]+)\/([1-9]\d*)\/?$/.exec(location.pathname);
+const boards=["news","notice","bid","legislation","general","gazette","press","briefing","facts","activity","media","photo","video","free","praise","civil-board"];
+if(!match||!boards.includes(match[1])){document.querySelector('p').textContent='페이지를 찾을 수 없습니다.';return}
+try{
+ const response=await fetch('/'+match[1]+'.html',{cache:'no-store'});
+ if(!response.ok)throw Error();
+ let html=await response.text();
+ html=html.replace(/<head([^>]*)>/i,'<head$1><base href="/">');
+ document.open();document.write(html);document.close();
+}catch{document.querySelector('p').textContent='게시글을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.'}
+})();
+</script></body></html>

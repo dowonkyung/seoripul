@@ -1,0 +1,223 @@
+.profile {
+  background: #ffffff;
+}
+.profile .profile__banner {
+  position: relative;
+  min-height: 320px;
+  background: linear-gradient(115deg,#13B5B1 0%,#62B8A6 42%,#D7A581 70%,#FF8040 100%);
+  border-radius: 12px;
+}
+@media only screen and (max-width: 63.99em) {
+  .profile .profile__banner {
+    margin-top: 40px;
+    min-height: 280px;
+  }
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__banner {
+    margin-top: 0;
+    min-height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+@media only screen and (max-width: 29.99em) {
+  .profile .profile__banner {
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    background-size: cover;
+  }
+}
+.profile .profile__photo {
+  position: absolute;
+  left: 60px;
+  bottom: 0;
+  width: 427px;
+  height: 374px;
+  z-index: 2;
+}
+@media only screen and (max-width: 63.99em) {
+  .profile .profile__photo {
+    width: 366px;
+    height: 317px;
+    bottom: 0;
+  }
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__photo {
+    width: 269px;
+    height: 232px;
+    left: 0px;
+  }
+}
+@media only screen and (max-width: 29.99em) {
+  .profile .profile__photo {
+    width: 220px;
+    height: 189px;
+    left: auto;
+    right: 0;
+  }
+}
+.profile .profile__info {
+  position: relative;
+  z-index: 1;
+  padding: 55px 40px 55px 570px;
+  color: #ffffff;
+}
+@media only screen and (max-width: 63.99em) {
+  .profile .profile__info {
+    padding: 44px 32px 44px 450px;
+  }
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__info {
+    padding: 24px 32px 24px 250px;
+  }
+}
+@media only screen and (max-width: 29.99em) {
+  .profile .profile__info {
+    padding: 30px 30px 211px 30px;
+    width: 100%;
+  }
+}
+.profile .profile__greeting {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+@media only screen and (max-width: 63.99em) {
+  .profile .profile__greeting {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 29.99em) {
+  .profile .profile__greeting {
+    margin-bottom: 6px;
+  }
+}
+.profile .profile__name {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 28px;
+}
+@media only screen and (max-width: 63.99em) {
+  .profile .profile__name {
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__name {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+}
+@media only screen and (max-width: 29.99em) {
+  .profile .profile__name {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+}
+.profile .profile__edu-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__edu-title {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 29.99em) {
+  .profile .profile__edu-title {
+    margin-bottom: 6px;
+  }
+}
+.profile .profile__edu-list li {
+  font-size: 19px;
+  position: relative;
+  padding-left: 30px;
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__edu-list li {
+    font-size: 17px;
+  }
+}
+.profile .profile__edu-list li::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__edu-list {
+    display: inline-block;
+    text-align: left;
+  }
+}
+.profile .profile__career-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 4px 12px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: -8px;
+}
+.profile .profile__career-list li {
+  padding-left: 26px;
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc((100% - 24px) / 3);
+          flex: 0 0 calc((100% - 24px) / 3);
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__career-list li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc((100% - 24px) / 2);
+            flex: 0 0 calc((100% - 24px) / 2);
+  }
+}
+.profile .profile__career-list li::after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  background-color: #1E2124;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+@media only screen and (max-width: 47.99em) {
+  .profile .profile__career-list li {
+    font-size: 14px;
+  }
+}
+
+
+.profile{line-height:1.5}.profile .profile__photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:bottom}.office-detail .profile .profile__greeting{font-size:32px;line-height:1.5;margin:0 0 16px;color:#102d36}.profile .profile__info{color:#102d36}.profile .profile__edu-list li::after{background:#102d36}.profile .profile__edu-title{margin-top:0}.profile .profile__career{margin-top:48px}.profile .profile__career-title{font-size:24px;font-weight:700;margin:0 0 24px}.profile .profile__career-list li{font-size:17px;word-break:keep-all;overflow-wrap:anywhere}.profile .profile__banner{margin-top:54px}.profile .profile__edu-list li{word-break:keep-all;overflow-wrap:anywhere}
+@media(max-width:63.99em){.office-detail .profile .profile__greeting{font-size:24px}}
+@media(max-width:47.99em){.profile .profile__career-list li{font-size:14px}.profile .profile__career-title{font-size:20px}.profile .profile__banner{margin-top:0}}
+
+/* Profile banner copy and career reading order. */
+.office-detail .profile .profile__greeting,.profile .profile__info,.profile .profile__edu-title,.profile .profile__edu-list li{color:#fff}.profile .profile__edu-list li::after{background:#fff}.profile .profile__career-list{display:flex;flex-direction:column;gap:8px}.profile .profile__career-list li{flex:0 0 auto;width:100%}
+
+/* Fill each column downwards, three career entries per column. */
+.profile .profile__career-list{display:grid;grid-template-rows:repeat(3,auto);grid-auto-flow:column;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 24px;align-items:start}.profile .profile__career-list li{width:auto;min-width:0}
+@media(max-width:47.99em){.profile .profile__career-list{gap:8px 12px}}
+
+@media only screen and (max-width:47.99em){.profile .profile__career-list{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(var(--profile-career-mobile-rows,4),auto)}}

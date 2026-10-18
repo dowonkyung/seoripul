@@ -1,0 +1,6 @@
+(function(){
+const routes={'인사말':'mayor.html#greeting','프로필':'mayor.html#profile','취임사':'mayor.html#inaugural','구정갤러리':'mayor.html#gallery','포토갤러리':'photo.html','영상갤러리':'video.html','구청장동정':'activity.html','언론기사':'media.html','공약실천':'mayor.html#promise','공약관리':'mayor.html#promise','매니페스토':'mayor.html#manifesto','선거공약':'mayor.html#election','오시는 길':'directions.html'};
+document.querySelectorAll('[data-page]').forEach(a=>{if(routes[a.dataset.page])a.href=routes[a.dataset.page]});document.addEventListener('click',e=>{const a=e.target.closest('[data-page]');if(!a||!routes[a.dataset.page]||a.hasAttribute('aria-expanded'))return;e.preventDefault();e.stopImmediatePropagation();location.href=routes[a.dataset.page]},true);
+const leaf=document.querySelector('#gnb a[data-page="언론기사"]'),top=leaf.closest('#gnb>ul>li'),item=leaf.closest('.gnb-wrap .wrap>ul>li');leaf.setAttribute('aria-current','page');top.classList.add('current-section');item.classList.add('current-item');function select(){[...item.parentElement.children].forEach(row=>{row.classList.toggle('active',row===item);if(row.querySelector('.depth3-wrap'))row.firstElementChild.setAttribute('aria-expanded',String(row===item))})}top.firstElementChild.addEventListener('click',select);select();
+document.querySelector('#menuAll').href='mayor.html#sitemap';
+})();

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "boards": {
+    "news": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "notice": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "bid": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "legislation": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "general": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "gazette": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "press": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "briefing": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "facts": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "activity": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "media": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "photo": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "video": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "free": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "praise": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    },
+    "civil-board": {
+      "next": 1,
+      "posts": {},
+      "active": []
+    }
+  }
+}

@@ -1,0 +1,17 @@
+(async function(){
+'use strict';
+const $=s=>document.querySelector(s),params=new URLSearchParams(location.search),nodes=window.SEORIPUL_ORGANIZATION||[],fields={jobGuidance:'duties',clsfNm:'department',rspofcNm:'position',telno:'phone'};
+const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
+const field=Object.hasOwn(fields,params.get('empSelect'))?params.get('empSelect'):'jobGuidance',query=(params.get('empSearch')||'').trim().slice(0,100);
+$('#empSelect').value=field;$('#empSearch').value=query;
+$('#searchEmp').onsubmit=e=>{const input=$('#empSearch');input.value=input.value.trim();if(!input.value){e.preventDefault();input.focus()}};
+function path(name){const parts=[],seen=new Set();while(name&&!seen.has(name)){parts.unshift(name);seen.add(name);name=nodes.find(n=>n.name===name)?.parent;if(name==='구청장'||name==='부구청장')break}return parts.join(' > ')}
+function matches(row,department,title){const value=field==='clsfNm'?department+' '+title:row[fields[field]];const normalize=v=>String(v||'').normalize('NFKC').toLocaleLowerCase('ko').replace(/\s+/g,'');return normalize(value).includes(normalize(query))}
+function render(documents){const host=$('#job-results');host.replaceChildren();let count=0;const order=new Map(nodes.map((n,i)=>[n.name,i]));documents.sort((a,b)=>(order.get(a.department)??999)-(order.get(b.department)??999));for(const doc of documents){for(const section of doc.sections||[]){const rows=(section.rows||[]).filter(row=>matches(row,path(doc.department),section.title));if(!rows.length)continue;count+=rows.length;const title=path(doc.department)+(section.title&&section.title!==doc.department?' > '+section.title:''),wrapper=node('div',undefined,'table-wrapper'),table=node('table',undefined,'content-table is-border mt12'),cols=node('colgroup');for(const width of ['25%','25%','50%']){const col=node('col');col.style.width=width;cols.append(col)}const head=node('thead'),tr=node('tr');for(const label of ['직위','전화번호','담당업무']){const th=node('th',label);th.scope='col';tr.append(th)}head.append(tr);const body=node('tbody');for(const row of rows){const tr=node('tr'),phone=node('td');if(row.phone&&/^[+\d\s()-]+$/.test(row.phone)){const a=node('a',row.phone);a.href='tel:'+row.phone.replace(/[^+\d]/g,'');phone.append(a)}else phone.textContent=row.phone||'—';tr.append(node('td',row.position||'—'),phone,node('td',row.duties||'—','is-td-left'));body.append(tr)}table.append(node('caption',title+' 직위, 전화번호, 담당업무로 구성된 표입니다.'),cols,head,body);wrapper.append(table);host.append(node('h4',title),wrapper)}}
+if(!count)host.append(node('h4','검색된 업무정보가 없습니다.','data-none-text'));$('#job-status').textContent=count?'검색 결과 '+count+'건':'';
+}
+if(!query)return;
+$('#job-status').textContent='업무정보를 검색하는 중입니다.';$('#job-results').replaceChildren();
+try{await window.HeaderAuth.ready;const client=window.HeaderAuth.client;if(!client)throw Error('unavailable');const documents=[];for(let offset=0;;offset+=100){const result=await client.from('seoripul_organization_directory').select('department,sections').order('department').range(offset,offset+99);if(result.error)throw result.error;documents.push(...result.data);if(result.data.length<100)break}render(documents)}
+catch{$('#job-status').textContent='업무정보를 불러오지 못했습니다. 잠시 후 다시 검색해 주세요.';const button=node('button','다시 시도','btn-normal bg-btn-secondary medium');button.type='button';button.onclick=()=>location.reload();$('#job-results').append(button)}
+})();

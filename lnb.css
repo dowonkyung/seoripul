@@ -1,0 +1,18 @@
+/* Shared LNB rules load after page-specific styles. */
+body.board-page .board-layout .lnb .lnb-list h2{margin:0;padding:24px 8px 16px;font-size:24px;line-height:1.5;color:#131416;border-bottom:1px solid #8a949e}
+body.board-page .board-layout .lnb .lnb-list>ul>li{border-bottom:1px solid #cdd1d5}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth2>a{display:flex;align-items:center;position:relative;padding:16px 16px 16px 8px;font-size:17px;font-weight:700;line-height:1.5;color:#1e2124;background:transparent;border:0;border-radius:0;text-decoration:none}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth2>a.arrow{padding-right:44px}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth2>a.arrow::before{content:"";position:absolute;width:20px;height:20px;right:15px;top:50%;background:url("assets/board/ico_arrow_bottom.svg") no-repeat center;transform:translateY(-50%);transition:transform .26s ease-in-out}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth2>a.arrow[aria-expanded="true"]::before{transform:translateY(-50%) rotate(180deg)}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth2>a::after{content:none}
+body.board-page .board-layout .lnb .lnb-list>ul>li.active>.depth2>a{color:#2a5caa;background:#eef2f7}
+body.board-page .board-layout .lnb .lnb-list>ul>li.active>.depth2>a::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:3px;background:#2a5caa}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth3{display:block;padding:0;overflow:hidden}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth3[hidden]{display:none!important}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth3>ul{margin:0;padding:10px 0}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth3>ul>li>a{display:block;position:relative;padding:8px 8px 8px 27px;font-size:17px;font-weight:400;line-height:1.5;color:#1e2124;border:0;border-radius:6px;background:transparent;text-decoration:none}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth3>ul>li>a::after{content:"•";position:absolute;left:12px;top:8px}
+body.board-page .board-layout .lnb .lnb-list>ul>li>.depth3>ul>li>a[aria-current="page"]{font-weight:700;color:#2a5caa;background:#eef2f7}
+body.board-page .board-layout .lnb a:focus-visible{outline:2px solid #111;outline-offset:-2px}
+@media(prefers-reduced-motion:reduce){body.board-page .board-layout .lnb .lnb-list>ul>li>.depth2>a.arrow::before{transition:none}}

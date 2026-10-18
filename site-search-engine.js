@@ -1,0 +1,31 @@
+(function(){
+'use strict';
+const boards={media:'언론기사',activity:'구청장동정',news:'새소식',notice:'고시 공고',bid:'입찰 공고',legislation:'입법 예고',general:'일반 공고',gazette:'서리풀 구보',press:'보도자료',briefing:'기자회견(브리핑)',facts:'사실은 이렇습니다',free:'자유게시판',praise:'칭찬게시판','civil-board':'민원게시판',photo:'포토갤러리'};
+const sources=[
+{table:'seoripul_news_posts',label:'새소식',type:'news',category:'board',published:true,fields:['title','department','body_text'],select:'id,title,department,body_text,created_at'},
+{table:'seoripul_notice_posts',label:'고시·공고',category:'board',published:true,fields:['title','department','body_text','notice_number','issue_name'],select:'id,board_type,title,department,body_text,notice_number,issue_name,created_at'},
+{table:'seoripul_publication_posts',label:'구보·언론 보도',category:'board',published:true,fields:['title','department','body_text','summary'],select:'id,board_type,title,department,body_text,summary,created_at'},
+{table:'seoripul_community_posts',label:'구민 게시판',category:'board',fields:['title','body_html'],select:'id,board_type,title,created_at'},
+{table:'seoripul_photo_posts',label:'포토갤러리',type:'photo',category:'media',published:true,fields:['title','department','body_text','summary'],select:'id,title,department,body_text,summary,thumbnail_path,created_at'},
+{table:'seoripul_video_posts',label:'영상갤러리',category:'media',fields:['title'],select:'id,title,youtube_id,published_on,created_at'},
+{table:'seoripul_civil_replies',label:'민원 답변',category:'board',fields:['department','body'],select:'id,post_id,department,body,created_at'}
+];
+const pattern=q=>'%'+q.replace(/[\\%_]/g,'\\$&')+'%';
+async function readAll(query){const result=[];for(let start=0;;start+=100){const r=await query().range(start,start+99);if(r.error)throw r.error;result.push(...r.data);if(r.data.length<100)return result}}
+async function database(client,q){
+if(!client)return {rows:[],errors:['게시판 연결']};
+const rows=[],errors=[];
+await Promise.all(sources.map(async source=>{try{
+const found=await Promise.all(source.fields.map(field=>readAll(()=>{let query=client.from(source.table).select(source.select).ilike(field,pattern(q));if(source.published)query=query.eq('status','published');return query.order('created_at',{ascending:false}).order('id',{ascending:false})})));
+const unique=new Map(found.flat().map(row=>[row.id,row]));
+for(const row of unique.values()){const type=source.type||row.board_type;if(source.table==='seoripul_civil_replies'){rows.push({id:source.table+row.id,category:'board',title:'민원 답변 · '+row.department,text:row.body,department:row.department,date:row.created_at,board:'민원게시판 답변',href:'civil-board.html?id='+encodeURIComponent(row.post_id)});continue}
+if(source.table==='seoripul_video_posts'){if(!/^[A-Za-z0-9_-]{11}$/.test(row.youtube_id))continue;rows.push({id:source.table+row.id,category:'media',title:row.title,text:row.title,date:row.published_on,board:'영상갤러리',image:'https://i.ytimg.com/vi/'+row.youtube_id+'/hqdefault.jpg',href:'video.html?id='+encodeURIComponent(row.id)});continue}
+if(!boards[type])continue;let image;if(source.type==='photo'){image='assets/press-default.svg';if(row.thumbnail_path){const signed=await client.storage.from('seoripul-photo-files').createSignedUrl(row.thumbnail_path,3600);if(!signed.error)image=signed.data.signedUrl}}rows.push({id:source.table+row.id,category:source.category,image,title:row.title,text:row.body_text||row.summary||row.notice_number||row.title,department:row.department||'',date:row.created_at,board:boards[type],href:type+'.html?id='+encodeURIComponent(row.id)})}
+}catch{errors.push(source.label)}}));
+await Promise.all([['seoripul_news_assets','seoripul_news_posts','news'],['seoripul_notice_assets','seoripul_notice_posts',null],['seoripul_publication_assets','seoripul_publication_posts',null],['seoripul_photo_assets','seoripul_photo_posts','photo']].map(async([table,parent,fixed])=>{try{const columns='id,file_name,created_at,parent:'+parent+'!inner(id,title,status'+(fixed?'':',board_type')+')';const found=await readAll(()=>client.from(table).select(columns).eq('kind','attachment').eq('parent.status','published').ilike('file_name',pattern(q)).order('created_at',{ascending:false}).order('id',{ascending:false}));for(const file of found){const post=file.parent,type=fixed||post?.board_type;if(!post||post.status!=='published'||!boards[type])continue;rows.push({id:table+file.id,category:'file',title:file.file_name,text:post.title,board:boards[type]+' · 첨부파일',date:file.created_at,href:type+'.html?id='+encodeURIComponent(post.id)})}}catch{errors.push(({seoripul_news_assets:'새소식',seoripul_notice_assets:'공고',seoripul_publication_assets:'언론 보도',seoripul_photo_assets:'포토갤러리'})[table]+' 첨부파일')}}));
+try{const documents=await readAll(()=>client.from('seoripul_organization_directory').select('department,sections').order('department'));for(const doc of documents)for(const section of doc.sections||[])for(const [index,row]of(section.rows||[]).entries()){const text=[doc.department,section.title,row.position,row.phone,row.duties].join(' ');if(text.toLocaleLowerCase().includes(q.toLocaleLowerCase()))rows.push({id:'org:'+doc.department+':'+section.title+':'+index,category:'staff',title:doc.department+' · '+row.position,text:row.duties||'',organization:doc.department,position:row.position,department:section.title,phone:row.phone,board:'업무·직원',href:'organization-directory.html?dept='+encodeURIComponent(doc.department)})}}catch{errors.push('업무·직원')}
+return {rows,errors};
+}
+function filter(rows,{category='all',start='',end='',within='',exclude='',sort='score',query=''}){const q=query.toLocaleLowerCase();return rows.filter(r=>{const text=[r.title,r.text,r.department,r.board].join(' ').toLocaleLowerCase();return(category==='all'||r.category===category)&&(!start||r.date&&r.date.slice(0,10)>=start)&&(!end||r.date&&r.date.slice(0,10)<=end)&&(!within||text.includes(within.toLocaleLowerCase()))&&(!exclude||!text.includes(exclude.toLocaleLowerCase()))}).sort((a,b)=>{if(sort==='date')return(b.date||'').localeCompare(a.date||'')||a.title.localeCompare(b.title,'ko');const score=r=>(r.title.toLocaleLowerCase().includes(q)?10:0)+(r.category==='menu'?5:0);return score(b)-score(a)||(b.date||'').localeCompare(a.date||'')})}
+window.SiteSearch={sources,database,filter,pattern};
+})();

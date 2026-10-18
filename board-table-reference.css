@@ -1,0 +1,23 @@
+/* Values from the supplied Seongnam notice list. */
+@media screen{
+body.board-page .board-table{width:100%;border-collapse:collapse;border-top:0;table-layout:fixed;font-size:17px}
+body.board-page .board-table thead th{height:56px;min-height:0;color:#131416;font-size:17px;font-weight:700;border-top:2px solid #005bad;border-bottom:1px solid #cdd1d5;text-align:center;padding:0 16px;background:#fff;line-height:1.5;white-space:nowrap}
+body.board-page .board-table thead th:first-child,body.board-page .board-table thead th:last-child{padding-right:8px;padding-left:8px}
+body.board-page .board-table tbody td{height:50px;color:#464c53;font-size:17px;font-weight:400;padding:7px 5px;text-align:center;border-bottom:1px solid #cdd1d5;line-height:1.5;vertical-align:middle}
+body.board-page .board-table tbody td.text-left{text-align:left}
+body.board-page .board-table tbody td a:not(.btn-normal){display:block;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.board-page .board-table tbody td a:not(.btn-normal):hover{text-decoration:underline}
+body.board-page .board-table tbody td .mobile-tit{display:none}
+}
+@media screen and (max-width:63.99em){
+body.board-page .board-table{border-top:2px solid #1e2124}
+body.board-page .board-table colgroup,body.board-page .board-table thead{display:none}
+body.board-page .board-table tbody{display:block}
+body.board-page .board-table tbody tr{display:block;padding:20px 0;border-bottom:1px solid #cdd1d5}
+body.board-page .board-table tbody td,body.board-page .board-table tbody td:first-child,body.board-page .board-table tbody td.text-left{display:flex;flex:none;gap:16px;width:100%;height:auto;padding:0;border:0;text-align:left;font-size:17px;font-weight:400;overflow:visible}
+body.board-page .board-table tbody td+td{padding-top:12px}
+body.board-page .board-table tbody td .mobile-tit{display:inline-block;flex:0 0 90px;width:90px;font-size:inherit;color:inherit;margin:0;font-weight:400}
+body.board-page .board-table tbody td.text-left a{min-width:0}
+body.board-page .board-table tbody td.empty-board{display:block;text-align:center!important}
+}
+@media screen and (max-width:47.99em){body.board-page .board-table tbody tr{padding:16px 0}body.board-page .board-table tbody td,body.board-page .board-table tbody td:first-child,body.board-page .board-table tbody td.text-left{font-size:15px}body.board-page .board-table tbody td+td{padding-top:8px}}

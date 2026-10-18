@@ -1,0 +1,14 @@
+.administration-page .content-body{margin-top:48px;padding-bottom:48px}
+.administration-page .content-section+.content-section{margin-top:80px}
+.administration-page .content-section h3{font-size:32px;line-height:1.5;margin:0 0 24px;font-weight:700}
+.administration-page .normal-type.dot{list-style:disc;padding-left:20px;line-height:1.6;font-size:17px}
+.administration-page .img-line{border-radius:12px;border:1px solid #B1B8BE;margin-top:20px;position:relative;overflow:hidden;padding:0}
+.administration-page .img-line iframe{display:block;width:100%;height:300px;border:0}
+.administration-page .table-wrapper{width:100%}
+.administration-page .content-table{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;border-top:1px solid #CDD1D5;font-size:17px;line-height:1.5}
+.administration-page .content-table th,.administration-page .content-table td{padding:12px 10px;text-align:center;border:1px solid #CDD1D5;border-width:0 1px 1px 0;color:#464C53;word-break:keep-all}
+.administration-page .content-table tr>:last-child{border-right:0}
+.administration-page .content-table th{background:#EEF2F7;color:#131416;font-weight:700}
+.administration-page .content-table td{background:#fff;font-weight:400}
+@media(max-width:47.99em){.administration-page .content-body{margin-top:40px}.administration-page .content-section+.content-section{margin-top:40px}.administration-page .content-section h3{font-size:24px}.administration-page .content-table{font-size:15px}}
+@media print{.administration-page .content-body{margin:0;padding:0}.administration-page .content-section{break-inside:avoid}.administration-page .img-line{break-inside:avoid}}
