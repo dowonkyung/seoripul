@@ -36,7 +36,7 @@ write('README.md',`# 금성도 서리풀구청
 
 로컬 및 CI 검증 방법은 scripts/validate-site.cjs와 .github/workflows/validate.yml을 참고하세요.
 `);
-const old=fs.readFileSync(path.resolve(__dirname,'..','_source/.github/workflows/share-previews.yml'),'utf8');write('.github/workflows/share-previews.yml',old);
+// The share-preview workflow is installed by the repository connector.
 // Outdated source-only tests and migrations are not published as setup instructions.
 for(const name of fs.readdirSync(path.join(root,'scripts')).filter(n=>/^test-(membership|post-number)-.*\.sql$/.test(n)))fs.unlinkSync(path.join(root,'scripts',name));
 console.log('Configuration and setup guide written');
