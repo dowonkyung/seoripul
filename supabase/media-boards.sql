@@ -1,8 +1,9 @@
+-- Compatibility setup: includes all six current publication boards. Prefer seoripul-setup.sql for initial setup.
 -- Run after schema.sql. Existing news tables and files are not changed.
 begin;
 create table if not exists public.seoripul_publication_posts (
   id uuid primary key default gen_random_uuid(),
-  board_type text not null check (board_type in ('gazette','press','briefing','facts')),
+  board_type text not null check (board_type in ('gazette','press','briefing','facts','activity','media')),
   contact text not null default '' check (char_length(contact)<=100),
   thumbnail_path text,
   summary text not null default '' check (char_length(summary)<=500),
@@ -17,7 +18,7 @@ create table if not exists public.seoripul_publication_posts (
 );
 -- Expand the category check on projects that already created these tables.
 alter table public.seoripul_publication_posts drop constraint if exists publication_posts_board_type_check;
-alter table public.seoripul_publication_posts add constraint publication_posts_board_type_check check (board_type in ('gazette','press','briefing','facts'));
+alter table public.seoripul_publication_posts add constraint publication_posts_board_type_check check (board_type in ('gazette','press','briefing','facts','activity','media'));
 create index if not exists seoripul_publication_posts_published_date on public.seoripul_publication_posts(status,created_at desc);
 alter table public.seoripul_publication_posts enable row level security;
 grant select on public.seoripul_publication_posts to anon, authenticated;
