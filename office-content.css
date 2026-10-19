@@ -1,0 +1,26 @@
+.greeting.greeting--no-photo .greeting__content{padding:0;max-width:100%}
+.greeting.greeting--no-photo .greeting__footer{position:static;margin-top:48px;justify-content:flex-end}
+.greeting.greeting--inaugural .greeting__inner{max-width:1400px;margin:0 auto}
+.profile .profile__career-list{grid-template-rows:repeat(var(--profile-career-rows,3),auto)}
+@media(max-width:47.99em){.profile .profile__career-list{grid-template-rows:repeat(var(--profile-career-mobile-rows,4),auto)}}
+.office-content-edit{display:block;margin:28px 0 0 auto;padding:10px 20px;border:1px solid #8a949e;border-radius:6px;background:#fff;font:inherit;cursor:pointer}
+.office-content-edit[hidden]{display:none!important}
+.office-content-editor{width:800px;max-width:calc(100vw - 32px);max-height:90dvh;box-sizing:border-box;border:0;border-radius:16px;padding:28px;color:#1e2124;background:#fff;font:inherit}
+.office-content-editor::backdrop{background:#0008}
+.office-content-editor h2{font-size:24px;margin:0 0 24px}
+.office-content-field{display:block;margin:18px 0;font-weight:700}
+.office-content-field>input,.office-content-field>textarea{display:block;width:100%;margin-top:8px;padding:12px;border:1px solid #8a949e;border-radius:6px;font:inherit;font-weight:400;box-sizing:border-box}
+.office-content-field>textarea{resize:vertical}
+.office-content-editor input:focus-visible,.office-content-editor textarea:focus-visible{outline:3px solid #111;outline-offset:0}
+.office-content-file{min-width:0;margin:20px 0;padding:16px;border:1px solid #cdd1d5;border-radius:8px}
+.office-content-file legend{padding:0 8px;font-weight:700}
+.office-content-file input[type=file]{max-width:100%;font:inherit}
+.office-content-preview{display:block;max-width:100%;max-height:200px;width:auto;height:auto;margin:0 auto 16px}
+.office-content-remove{display:flex;align-items:center;gap:8px;margin-top:12px}
+.office-content-remove input{width:18px;height:18px}
+.office-content-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:24px}
+.office-content-actions button{padding:10px 22px;border:1px solid #8a949e;border-radius:6px;font:inherit;background:#fff}
+.office-content-actions button[type=submit]{background:var(--point);border-color:var(--point);color:#fff}
+.office-content-actions button:disabled{opacity:.5;cursor:wait}
+.office-content-status{white-space:pre-line;overflow-wrap:anywhere;line-height:1.6}
+@media(max-width:767px){.office-content-editor{padding:20px}.office-content-file{padding:12px}}
