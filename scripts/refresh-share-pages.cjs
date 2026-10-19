@@ -17,6 +17,7 @@ for(const tag of pages.imageTags(row.body_html)){image=await assetImage(own.find
 for(const asset of own.filter(a=>a.kind==='inline').concat(own.filter(a=>a.kind!=='inline'&&a.kind!=='preview'))){image=await assetImage(asset);if(image)return image}
 for(const attachment of row.attachments||[]){image=directImage(attachment.data);if(image)return image}return fallback}
 async function main(){
+await require('./site-metadata.cjs').refresh(root,site,client);
 const groups=await Promise.all([
 read('news_posts','id,title,created_at,body_text,body_html',true).then(rs=>rs.map(r=>({...r,board_type:'news',bucket:bucketPrefix+'news-files'}))),
 read('notice_posts','id,title,board_type,created_at,body_text,body_html',true).then(rs=>rs.map(r=>({...r,bucket:bucketPrefix+'notice-files'}))),

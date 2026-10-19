@@ -27,11 +27,13 @@ jobs:
           node --check board.js
           node --check photo-board.js
           node --check video-gallery.js
+          node --check site-settings.js
+          node --check scripts/site-metadata.cjs
           node scripts/sync-navigation.cjs
           node scripts/refresh-share-pages.cjs
       - name: Publish post addresses and previews
         run: |
-          git add -- '*.html' share post-routes.json news notice bid legislation general gazette press briefing facts activity media photo video free praise civil-board
+          git add -- '*.html' site-settings.json share post-routes.json news notice bid legislation general gazette press briefing facts activity media photo video free praise civil-board
           if git diff --cached --quiet; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
