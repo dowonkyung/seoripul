@@ -2,3 +2,9 @@
 .banner-admin-footer{display:flex;justify-content:flex-end;box-sizing:border-box;width:100%;max-width:1400px;margin:0 auto;padding:24px 20px;background:#fff}.banner-admin-footer[hidden]{display:none!important}.banner-admin-footer .banner-admin-button{margin:0}.banner-group-label{display:block;font-weight:700;margin:16px 0}.banner-group-label select{display:block;box-sizing:border-box;width:100%;margin-top:8px;padding:10px 14px;border:1px solid #8a949e;border-radius:8px;background:#fff;font:inherit}.banner-empty{color:#1e2124}.office-slides>.banner-empty{position:absolute;inset:0;margin:0}.banner-admin-dialog [inert]{pointer-events:none}
 
 .banner-admin-footer{gap:8px;flex-wrap:wrap}
+
+/* Reserve the existing banner footprint while fetching published banners. */
+html.home-banners-pending #banner .swiper-wrapper,
+html.home-banners-pending .banner-area .slide-arrows,
+html.home-banners-pending .banner-area .slide-status{visibility:hidden}
+html.home-banners-pending #banner::after{content:"배너를 불러오는 중입니다.";position:absolute;inset:0;display:grid;place-items:center;color:#58616a;font-size:15px}

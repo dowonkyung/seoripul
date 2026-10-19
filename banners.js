@@ -1,3 +1,8 @@
+// Keep the initial defaults out of view until the public banner list is ready.
+if(document.querySelector('#banner')){
+ document.documentElement.classList.add('home-banners-pending');
+ window.homeBannerRevealFallback=setTimeout(()=>document.documentElement.classList.remove('home-banners-pending'),8000);
+}
 // 배너 추가·교체: src(이미지 경로), alt(이미지 속 내용), page(연결 메뉴)를 수정하세요.
 // 권장 크기 844 × 440px. JPG, PNG, WebP, SVG 사용 가능.
 // 상세 페이지가 생기면 page 대신 href: './notice.html' 등을 지정할 수 있습니다.
