@@ -1,19 +1,12 @@
 .ci-reference{font-size:17px;line-height:26px;color:#1d1d1d;margin:0 0 75px;overflow-wrap:anywhere}
-.ci-reference .ci-image-box{position:relative;margin:18px 0 0;border:1px solid #c6c6c6;border-radius:12px;padding:80px 22px 79px;background:#fff}
-.ci-variants{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;max-width:925px;margin:0 auto;aspect-ratio:925/300}
-.ci-reference figure{min-width:0;margin:0;display:flex;flex-direction:column;text-align:center}
-.ci-reference .ci-visual{display:flex;align-items:center;justify-content:center;min-height:0;flex:1;color:inherit;text-decoration:none}
-.ci-reference .ci-visual img{display:block;max-width:100%;max-height:234px;width:100%;height:100%;object-fit:contain}
-.ci-reference figcaption{margin:24px 0 0;font-size:17px;line-height:26px;font-weight:700;color:#1d1d1d}
-.ci-image-zoom{position:absolute;right:16px;bottom:16px;width:32px;height:32px;display:grid;place-items:center;border:1px solid #c6c6c6;border-radius:50%;background:#fff;color:#33363d}
-.ci-image-zoom svg{display:block;width:20px;height:20px}
+.ci-reference .ci-image-box{margin:18px 0 0;border:1px solid #c6c6c6;border-radius:12px;padding:80px 22px 79px;background:#fff}
+.ci-reference .ci-image-box:empty{min-height:260px}
+.ci-reference .ci-logotype-box:empty{min-height:160px}
+.ci-provided-image{display:block;width:auto;max-width:100%;height:auto;margin:0 auto}
 .ci-reference .ci-description{list-style:none;padding:0;margin:18px 0 12px}
 .ci-description>li{position:relative;padding-left:24px;margin-top:8px}
 .ci-description>li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#6d7882}
 .ci-page .ci-reference h3{font-size:25px;line-height:38px;font-weight:600;color:#131416;margin:88px 0 24px;padding:0}
-.ci-logotypes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;max-width:994px;margin:auto}
-.ci-letter{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:70px;line-height:1.35;color:#001b4e;font-weight:800;word-break:keep-all}
-.ci-korean,.ci-combined strong{font-size:40px;letter-spacing:-2px}.ci-english{font-size:24px}.ci-combined small{font-size:12px;letter-spacing:0}
 .ci-reference .ci-color-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin:21px 0 0;padding:79px 79px 70px;border:1px solid #c6c6c6;border-radius:12px;background:#fff}
 .ci-swatch{height:110px;border-radius:12px}
 .ci-color-content{padding-left:12px}
@@ -22,16 +15,13 @@
 .ci-color-content li{position:relative;padding-left:13px}
 .ci-color-content li::before{content:"";position:absolute;left:0;top:12px;width:4px;height:4px;border-radius:50%;background:#6d7882}
 .ci-information{position:relative;margin:24px 0 22px;padding:16px 18px 14px 44px;border:1px solid #d6e0eb;border-radius:7px;background:#eef2f7;font-size:17px;line-height:26px}
-.ci-download-wrap{text-align:center;margin-top:24px}
-.ci-download-button{min-width:250px;min-height:50px;border:1px solid var(--point,#246beb);border-radius:6px;background:var(--point,#246beb);color:#fff;font-size:17px;padding:10px 24px;display:inline-flex;align-items:center;justify-content:center;gap:32px;cursor:pointer}
-.ci-download-button:hover{color:#fff}.ci-download-button span{font-size:22px}
-.ci-download-dialog{width:min(440px,calc(100vw - 32px));padding:28px;border:1px solid #c6c6c6;border-radius:12px;background:#fff}.ci-download-dialog::backdrop{background:#0008}
-.ci-download-dialog h2{font-size:24px;margin:0 0 20px}.ci-download-dialog ul{list-style:none;margin:0 0 24px;padding:0}.ci-download-dialog li+li{margin-top:12px}.ci-download-dialog a{display:block;padding:12px 16px;border:1px solid #c6c6c6;border-radius:6px;color:inherit;text-decoration:none}.ci-download-dialog button{display:block;margin-left:auto;border:1px solid #c6c6c6;border-radius:6px;padding:8px 20px}
-.policy-preparing{display:grid;place-items:center;min-height:320px;padding:48px 24px;text-align:center;border:1px solid #c6c6c6;border-radius:12px;background:#f8fafc;color:#464c53;font-size:19px;line-height:1.6}.policy-preparing p{margin:0}
-@media(max-width:1000px){.ci-reference .ci-image-box{padding:30px}.ci-reference .ci-color-wrap{padding:30px}.ci-variants{gap:24px}.ci-logotypes{gap:24px}.ci-korean,.ci-combined strong{font-size:32px}.ci-english{font-size:20px}}
-@media(max-width:640px){.ci-reference{font-size:15px;line-height:24px;margin-bottom:40px}.ci-reference .ci-image-box{padding:20px}.ci-variants{gap:16px;aspect-ratio:925/360}.ci-reference .ci-visual img{max-height:150px}.ci-reference figcaption{font-size:12px;line-height:18px;margin-top:12px}.ci-image-zoom{right:8px;bottom:8px;width:26px;height:26px}.ci-image-zoom svg{width:16px;height:16px}.ci-page .ci-reference h3{font-size:22px;line-height:32px;margin-top:48px}.ci-logotypes{gap:12px}.ci-letter{min-height:60px}.ci-korean,.ci-combined strong{font-size:23px;letter-spacing:-1px}.ci-english{font-size:13px}.ci-combined small{font-size:8px}.ci-reference .ci-color-wrap{grid-template-columns:1fr;gap:20px;padding:20px}.ci-color-content>strong{font-size:18px;margin:20px 0 10px}.ci-color-content ul,.ci-information{font-size:15px;line-height:24px}.ci-download-button{min-width:220px;font-size:16px}.policy-preparing{min-height:240px;font-size:17px}}
-@media print{.ci-image-zoom,.ci-download-wrap,.ci-download-dialog{display:none}.ci-reference .ci-image-box,.ci-reference .ci-color-wrap{break-inside:avoid}}
-
-
 .ci-information::before{content:"i";position:absolute;left:18px;top:21px;width:16px;height:16px;box-sizing:border-box;border:1.5px solid #355d83;border-radius:50%;color:#355d83;font-family:serif;font-size:12px;font-weight:700;line-height:13px;text-align:center}
-@media(max-width:640px){.ci-korean,.ci-combined strong{font-size:clamp(16px,4.8vw,23px);letter-spacing:-.5px}.ci-english{font-size:clamp(10px,2.7vw,13px)}}
+.ci-download-wrap{text-align:center;margin-top:24px}
+.ci-download-wrap .ci-download-button{min-width:250px;min-height:50px;border:1px solid var(--point,#246beb);border-radius:6px;background:var(--point,#246beb);color:#fff;font-size:17px;padding:10px 24px;display:inline-flex;align-items:center;justify-content:center;gap:32px;text-decoration:none;cursor:pointer}
+.ci-download-wrap .ci-download-button:hover{color:#fff;text-decoration:none}.ci-download-button span{font-size:22px}
+.ci-download-button:disabled{opacity:.5;cursor:default}
+.policy-preparing{display:grid;place-items:center;min-height:320px;padding:48px 24px;text-align:center;border:1px solid #c6c6c6;border-radius:12px;background:#f8fafc;color:#464c53;font-size:19px;line-height:1.6}.policy-preparing p{margin:0}
+@media(max-width:1000px){.ci-reference .ci-image-box{padding:30px}.ci-reference .ci-color-wrap{padding:30px}}
+@media(max-width:640px){.ci-reference{font-size:15px;line-height:24px;margin-bottom:40px}.ci-reference .ci-image-box{padding:20px}.ci-reference .ci-image-box:empty{min-height:180px}.ci-reference .ci-logotype-box:empty{min-height:120px}.ci-page .ci-reference h3{font-size:22px;line-height:32px;margin-top:48px}.ci-reference .ci-color-wrap{grid-template-columns:1fr;gap:20px;padding:20px}.ci-color-content>strong{font-size:18px;margin:20px 0 10px}.ci-color-content ul,.ci-information{font-size:15px;line-height:24px}.ci-download-wrap .ci-download-button{min-width:220px;font-size:16px}.policy-preparing{min-height:240px;font-size:17px}}
+@media print{.ci-download-wrap{display:none}.ci-reference .ci-image-box,.ci-reference .ci-color-wrap{break-inside:avoid}}
+

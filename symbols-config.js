@@ -1,5 +1,11 @@
 // 이미지 경로·설명·다운로드 파일을 이곳에서 교체하세요.
 window.SEORIPUL_SYMBOLS={
+  // 이 경로에 이미지를 올리면 두 박스에 각각 한 장씩 표시됩니다.
+  "ci": {
+  "symbolImage": "assets/ci/symbol-mark.png",
+  "logotypeImage": "assets/ci/logotype.png",
+  "aiFile": "assets/ci/ci.ai"
+},
   "mark": {
     "title": "구마크(City Identity)",
     "description": "구마크는 임시 이미지입니다. 확정된 로고로 교체할 예정입니다.",
