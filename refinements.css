@@ -48,3 +48,30 @@ body{font-family:"Pretendard GOV","Malgun Gothic",sans-serif}.gov .inner{display
 .search-side .primary-links{grid-template-columns:repeat(4,minmax(0,1fr))}
 .search-side .primary-links button[data-page="오시는 길"] span{background-image:url("assets/icons/shortcut-directions.svg?v=2")}
 @media(max-width:767px){.search-side .primary-links button{padding:0 4px;font-size:14px;white-space:nowrap}}
+
+/* Seocho reference mayor card, within the original page-item footprint. */
+.search-side .page-item.main-mayor{display:flex;flex-direction:column;position:relative;height:267px;padding:0;border:0;border-radius:20px;background:#fff}
+.main-mayor .main-mayor-intro{flex:1;min-height:0;position:relative;border:1px solid var(--point);border-bottom:0;border-radius:20px 20px 0 0;padding:24px 32px;box-sizing:border-box;overflow:hidden}
+.main-mayor .main-mayor-photo{position:absolute;right:0;bottom:0;width:42%;height:100%;object-fit:contain;object-position:right bottom;pointer-events:none}
+.main-mayor .mayor-copy{position:relative;margin:0 0 16px;font-size:24px;line-height:1.33;color:#222}
+.main-mayor .mayor-copy span{display:block}
+.main-mayor .mayor-copy .txt1{color:var(--point);font-weight:700;margin-bottom:3px;line-height:1.3;font-size:20px}
+.main-mayor .mayor-copy .txt1 em{font-style:normal;font-size:22px}
+.main-mayor .mayor-copy .txt2{font-size:20px}
+.main-mayor .mayor-copy .txt2 strong{font-size:30px;font-weight:700;line-height:1.3}
+.main-mayor .links{position:relative;width:148px;list-style:none;margin:0;padding:0}
+.main-mayor .links li+li{margin-top:12px}
+.main-mayor .links a{display:flex;align-items:center;height:38px;border:1px solid #dedede;border-radius:8px;padding:0 20px;font-size:17px;font-weight:500;background:rgba(255,255,255,.5);color:#222;box-sizing:border-box;text-decoration:none}
+.main-mayor .links a::after,.main-mayor .go-mayorSite a::after{content:"";width:18px;height:18px;flex:none;margin-left:auto;background:url("assets/reference/ico_arrow_right.svg") center/18px no-repeat}
+.main-mayor .links a:hover,.main-mayor .links a:focus-visible{outline:2px solid #222;outline-offset:-1px;box-shadow:0 4px 5px #2223}
+.main-mayor .go-mayorSite{height:52px;flex-shrink:0}
+.main-mayor .go-mayorSite a{display:flex;align-items:center;justify-content:center;height:100%;color:#fff;font-size:18px;font-weight:500;background:var(--point);border-radius:0 0 20px 20px;text-decoration:none}
+.main-mayor .go-mayorSite a::before{content:"";width:20px;height:20px;margin-right:8px;background:#fff;mask:url("assets/reference/ico_mayor9.svg") center/contain no-repeat}
+.main-mayor .go-mayorSite a::after{margin-left:12px;filter:brightness(0) invert(1)}
+.main-mayor a:hover::after{animation:mayor-link-arrow .8s infinite}
+@keyframes mayor-link-arrow{50%{transform:translateX(3px)}}
+@media(min-width:1024px) and (max-width:1439px){.search-side .page-item.main-mayor{height:254px}.main-mayor .main-mayor-intro{padding:18px 24px}.main-mayor .mayor-copy{margin-bottom:12px}}
+@media(min-width:768px) and (max-width:1023px){.search-side .page-item.main-mayor{height:307px}.main-mayor .main-mayor-intro{padding:28px 24px}}
+@media(max-width:767px){.search-side .page-item.main-mayor{height:253.5px}.main-mayor .main-mayor-intro{padding:20px 24px}.main-mayor .go-mayorSite{height:45px}.main-mayor .mayor-copy .txt1{font-size:18px}.main-mayor .mayor-copy .txt1 em{font-size:20px}.main-mayor .mayor-copy .txt2{font-size:18px}.main-mayor .mayor-copy .txt2 strong{font-size:28px}}
+@media(max-width:479px){.search-side .page-item.main-mayor{height:265.5px}.main-mayor .main-mayor-intro{padding:20px}.main-mayor .mayor-copy .txt1{font-size:16px}.main-mayor .mayor-copy .txt1 em{font-size:18px}.main-mayor .mayor-copy .txt2{font-size:16px}.main-mayor .mayor-copy .txt2 strong{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.main-mayor a:hover::after{animation:none}}

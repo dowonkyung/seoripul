@@ -32,6 +32,7 @@ document.querySelectorAll('[data-zoom]').forEach(a=>a.onclick=e=>{e.preventDefau
 function headerSearch(){const input=document.querySelector('#applyTotalSearchTop'),q=input.value.trim();if(!q){input.focus();return}location.href='search.html?q='+encodeURIComponent(q)}
 document.querySelector('.header-search-btn').onclick=e=>{e.preventDefault();headerSearch()};document.querySelector('#applyTotalSearchTop').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();headerSearch()}};
 const mayor=window.SEORIPUL_MAYOR,section=document.querySelector('.mayor-section');
+if(mayor&&section){
 document.querySelector('#mayor-heading').textContent=`서리풀구청장 ${mayor.name}입니다.`;
 const greeting=document.querySelector('#mayor-greeting');mayor.greeting.forEach((line,i)=>{if(i)greeting.append(document.createElement('br'));greeting.append(document.createTextNode(line))});
 document.querySelector('#mayor-office').textContent=mayor.name+' 구청장실';
@@ -44,6 +45,9 @@ function updateMayorPause(){mayorPause.classList.toggle('stop',!mayorStopped);ma
 mayorPause.onclick=()=>{mayorStopped=!mayorStopped;if(mayorStopped)mayorSlider.autoplay.stop();else mayorSlider.autoplay.start();updateMayorPause()};updateMayorPause();
 section.querySelector('.mayor-banner').addEventListener('focusin',()=>mayorSlider.autoplay.stop());section.querySelector('.mayor-banner').addEventListener('focusout',e=>{if(!e.currentTarget.contains(e.relatedTarget)&&!mayorStopped)mayorSlider.autoplay.start()});
 reducedMotion.addEventListener('change',e=>{mayorSlider.params.speed=e.matches?0:500;if(e.matches){mayorStopped=true;mayorSlider.autoplay.stop();updateMayorPause()}});
+
+}
+const homeMayor=document.querySelector(".main-mayor");if(mayor&&homeMayor){homeMayor.querySelector("[data-home-mayor-name]").textContent=mayor.name;homeMayor.querySelector(".main-mayor-photo").src=mayor.portrait;}
 
 // The reference shows an inline desktop search and a toggle on small screens.
 const headerSearchMedia=matchMedia('(min-width:1024px)');
