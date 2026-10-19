@@ -1,6 +1,6 @@
 (function(){
  'use strict';
- let state={user:null,admin:false},client,signupClient,refreshVersion=0,lastBlock='';
+ let state={user:null,admin:false,superAdmin:false},client,signupClient,refreshVersion=0,lastBlock='';
  const dialog=document.querySelector('#login-dialog');
  if(!dialog)return;
  const form=dialog.querySelector('form'),error=dialog.querySelector('#login-error');
@@ -23,28 +23,28 @@
    if(label){[...label.childNodes].filter(n=>n.nodeType===3).forEach(n=>n.remove());label.append(state.user?'로그아웃':'로그인')}else a.textContent=state.user?'로그아웃':'로그인을 해주세요';
    a.setAttribute('aria-label',state.user?'로그아웃':'로그인');
   });
-  if(!state.admin&&management.open)management.close();
-  const authKey=JSON.stringify([state.user?.id||null,Boolean(state.admin),state.user?.email||'',state.member?.status||'',state.member?.display_name||'']);
+  if(!state.superAdmin&&management.open)management.close();
+  const authKey=JSON.stringify([state.user?.id||null,Boolean(state.admin),Boolean(state.superAdmin),state.user?.email||'',state.member?.status||'',state.member?.display_name||'']);
   if(authKey!==publishedAuthKey){publishedAuthKey=authKey;window.dispatchEvent(new CustomEvent('header-auth-change',{detail:state}))}
  }
  async function refresh(){
-  const version=++refreshVersion;let next={user:null,admin:false},block='';
+  const version=++refreshVersion;let next={user:null,admin:false,superAdmin:false},block='';
   if(client){
    const r=await client.auth.getUser();if(r.data?.user){
     const user=r.data.user,a=await client.from('news_admins').select('user_id').eq('user_id',user.id).maybeSingle();
     if(a.error)throw Error('계정 권한을 확인하지 못했습니다. 다시 시도해 주세요.');
-    if(a.data)next={user,admin:true};
+    if(a.data){let highest=false;try{const s=await client.rpc('is_super_admin');highest=!s.error&&s.data===true}catch{}next={user,admin:true,superAdmin:highest};}
     else{
      const m=await client.from('membership_requests').select('status,display_name').eq('user_id',user.id).maybeSingle();
      if(m.error)block='회원 승인 상태를 확인하지 못했습니다. 관리자에게 문의해 주세요.';
-     else if(m.data?.status==='approved')next={user,admin:false,member:m.data};
+     else if(m.data?.status==='approved')next={user,admin:false,superAdmin:false,member:m.data};
      else block=m.data?.status==='rejected'?'가입 신청이 승인되지 않았습니다. 관리자에게 문의해 주세요.':'회원가입 승인 대기 중입니다. 관리자 승인 후 로그인해 주세요.';
      if(!next.user)await client.auth.signOut({scope:'local'});
     }
    }
   }
   if(version===refreshVersion){state=next;if(block)lastBlock=block;render()}
-  return {user:next.user,admin:next.admin,block};
+  return {user:next.user,admin:next.admin,superAdmin:next.superAdmin,block};
  }
  const management=document.createElement('dialog');management.id='membership-dialog';
  management.innerHTML='<h2>회원가입 신청 관리</h2><div class="membership-tools"><label>신청 상태 <select id="membership-filter"><option value="pending">승인 대기</option><option value="approved">승인 완료</option><option value="rejected">거절</option></select></label><button type="button" data-membership-refresh>새로고침</button></div><p role="status" aria-live="polite"></p><div class="membership-table-wrap"><table><caption class="hd-element">회원가입 신청자 이름, 이메일, 신청일, 처리 상태</caption><thead><tr><th>이름 / 닉네임</th><th>이메일</th><th>신청일</th><th>상태</th><th>처리</th></tr></thead><tbody></tbody></table></div><div class="membership-footer"><button type="button" data-membership-prev>이전</button><button type="button" data-membership-next>다음</button><button type="button" data-membership-close>닫기</button></div>';
@@ -55,7 +55,7 @@
  async function listRequests(){
   const version=++listVersion;managementStatus.textContent='신청 목록을 불러오는 중입니다.';
   management.querySelector('tbody').replaceChildren();
-  if(!state.admin){managementStatus.textContent='관리자 로그인이 필요합니다.';return}
+  if(!state.superAdmin){managementStatus.textContent='최고관리자 로그인이 필요합니다.';return}
   const filter=management.querySelector('select').value;
   const r=await client.from('membership_requests').select('user_id,email,display_name,status,requested_at',{count:'exact'}).eq('status',filter).order('requested_at',{ascending:false}).order('user_id').range(managementPage*20,managementPage*20+19);
   if(version!==listVersion)return;
@@ -72,7 +72,7 @@
    for(const [status,label]of [['approved','승인'],['rejected','거절']]){
     if(row.status===status)continue;const button=document.createElement('button');button.type='button';button.textContent=label;
     button.onclick=async()=>{
-     if(reviewBusy)return;reviewBusy=true;management.querySelectorAll('button,select').forEach(b=>b.disabled=true);
+     if(reviewBusy||!state.superAdmin)return;reviewBusy=true;management.querySelectorAll('button,select').forEach(b=>b.disabled=true);
      try{const result=await client.rpc('review_membership',{p_user:row.user_id,p_status:status,p_expected:row.status});if(result.error)throw result.error;await listRequests();managementStatus.textContent=label+' 처리했습니다. '+managementStatus.textContent}
      catch(e){managementStatus.textContent='처리하지 못했습니다: '+e.message}
      finally{reviewBusy=false;management.querySelectorAll('button,select').forEach(b=>b.disabled=false);management.querySelector('[data-membership-prev]').disabled=managementPage===0;management.querySelector('[data-membership-next]').disabled=(managementPage+1)*20>=managementCount}
@@ -80,7 +80,7 @@
    }td.append(controls);tr.append(td);tbody.append(tr);
   }
  }
- async function openManagement(){await ready;if(!state.admin)return;if(!management.open)management.showModal();managementPage=0;await listRequests()}
+ async function openManagement(){await ready;if(!state.superAdmin)return;if(!management.open)management.showModal();managementPage=0;await listRequests()}
  management.querySelector('[data-membership-close]').onclick=()=>management.close();
  management.querySelector('[data-membership-refresh]').onclick=()=>listRequests();
  management.querySelector('select').onchange=()=>{managementPage=0;listRequests()};
@@ -92,7 +92,7 @@
    client=window.BoardStore?.client||window.supabase.createClient(c.supabaseUrl,c.publishableKey,{auth:{storageKey:site+'-admin',persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
    signupClient=window.supabase.createClient(c.supabaseUrl,c.publishableKey,{auth:{storageKey:site+'-signup',persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
    try{await refresh()}catch(e){error.textContent=e.message;render()}
-   client.auth.onAuthStateChange(()=>setTimeout(()=>refresh().catch(()=>{state={user:null,admin:false};render()}),0));
+   client.auth.onAuthStateChange(()=>setTimeout(()=>refresh().catch(()=>{state={user:null,admin:false,superAdmin:false};render()}),0));
   }else render();return state;
  })();
  async function open(){await ready;mode('login');error.textContent=client?'':'사이트의 로그인 연결 설정이 필요합니다.';if(!dialog.open)dialog.showModal();dialog.querySelector('#admin-email').focus()}
