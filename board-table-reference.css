@@ -1,7 +1,7 @@
 /* Values from the supplied Seongnam notice list. */
 @media screen{
 body.board-page .board-table{width:100%;border-collapse:collapse;border-top:0;table-layout:fixed;font-size:17px}
-body.board-page .board-table thead th{height:56px;min-height:0;color:#131416;font-size:17px;font-weight:700;border-top:2px solid #005bad;border-bottom:1px solid #cdd1d5;text-align:center;padding:0 16px;background:#fff;line-height:1.5;white-space:nowrap}
+body.board-page .board-table thead th{height:56px;min-height:0;color:#131416;font-size:17px;font-weight:700;border-top:2px solid #E61E2B;border-bottom:1px solid #cdd1d5;text-align:center;padding:0 16px;background:#fff;line-height:1.5;white-space:nowrap}
 body.board-page .board-table thead th:first-child,body.board-page .board-table thead th:last-child{padding-right:8px;padding-left:8px}
 body.board-page .board-table tbody td{height:50px;color:#464c53;font-size:17px;font-weight:400;padding:7px 5px;text-align:center;border-bottom:1px solid #cdd1d5;line-height:1.5;vertical-align:middle}
 body.board-page .board-table tbody td.text-left{text-align:left}

@@ -137,7 +137,7 @@
   border-radius: 12px 0 0 0;
 }
 .symbol-list li:hover a::after {
-  background-color: #083891;
+  background-color: #E61E2B;
 }
 
 .symbol-color {
@@ -247,7 +247,7 @@
 }
 .floating-menu ul li.active a {
   background-color: #EEF2F7;
-  color: #063A74;
+  color: #E61E2B;
   font-weight: 700;
 }
 

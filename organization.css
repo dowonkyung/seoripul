@@ -954,7 +954,7 @@ li:has(> .org-side-left) {
 
 .organization-page .org-side{justify-content:center}
 
-:root{--org-primary:#2A5CAA;--org-accent:#F04E4C}
+:root{--org-primary:#E61E2B;--org-accent:#F04E4C}
 .organization-page .org a{text-decoration:none}
 .organization-page .org>a,.organization-page a.org-node,.organization-page a.org-director,.organization-page a.dept-title{cursor:pointer}
 .organization-page .org-node-mayor,.organization-page .org-node-citizen{background-color:var(--org-primary);color:white}

@@ -131,7 +131,7 @@ header .header-middle .bottom-menu .logo h1 a{
   display: block;
   width: 148px;
   height: 50px;
-  background: url("assets/seoripul-logo.svg") no-repeat 0 0/100%;
+  background: url("assets/seoripul-slogan.svg") no-repeat 0 0/100%;
 }
 @media only screen and (max-width: 63.99em){header .header-middle .bottom-menu .logo h1 a{
     width: 92px;
@@ -490,7 +490,7 @@ header .header-search input{
     width: 100%;
     height: 48px;
     border-radius: 6px;
-    border: 1px solid #0B50D0;
+    border: 1px solid #E61E2B;
     background-color: #fff;
     padding-left: 16px;
   }
@@ -499,7 +499,7 @@ header .header-search .header-search-btn{
   width: 30px;
   height: 30px;
   background: url("assets/reference/ico_search_white2.svg") no-repeat center;
-  background-color: #1C589C;
+  background-color: #E61E2B;
   border-radius: 6px;
 }
 @media only screen and (max-width: 63.99em){header .header-search .header-search-btn{
@@ -514,7 +514,7 @@ header .header-search .ai-search{
   font-size: 13px;
   color: #fff;
   padding: 0 25px 0 8px;
-  background: url("assets/reference/ico_ai_search.svg") no-repeat right 8px center #1C589C;
+  background: url("assets/reference/ico_ai_search.svg") no-repeat right 8px center #E61E2B;
   border-radius: 6px;
   position: absolute;
   top: 50%;
@@ -585,7 +585,7 @@ header .dropdown .mypage-info p{
 }
 header .dropdown .mypage-info span{
   font-size: 15px;
-  color: #0B50D0;
+  color: #E61E2B;
   padding-left: 18px;
   background: url("assets/reference/ico_time.svg") no-repeat 0 center;
 }
@@ -677,7 +677,7 @@ header .drop-menu .top .time{
   font-size: 15px;
 }
 header .drop-menu .top .time span{
-  color: #2A5CAA;
+  color: #E61E2B;
   padding-left: 18px;
   background: url("assets/reference/ico_time.svg") no-repeat 0 center;
 }
@@ -1178,8 +1178,8 @@ header .drop-menu .logout span{
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-    background: -webkit-gradient(linear, left bottom, right top, from(#173968), to(#2A5CAA));
-    background: linear-gradient(to top right, #173968, #2A5CAA);
+    background: -webkit-gradient(linear, left bottom, right top, from(#173968), to(#E61E2B));
+    background: linear-gradient(to top right, #173968, #E61E2B);
     margin-top: 430px;
   }
 }
@@ -1551,7 +1551,7 @@ header .drop-menu .logout span{
   }
 }
 .mayor-section .top .mayor-info ul li a:hover{
-  background-color: #2A5CAA;
+  background-color: #E61E2B;
 }
 .mayor-section .top .mayor-info ul li a::before{
   content: "";

@@ -13,10 +13,10 @@ window.SEORIPUL_SYMBOLS={
 },
   "mark": {
     "title": "구마크(City Identity)",
-    "description": "구마크는 임시 이미지입니다. 확정된 로고로 교체할 예정입니다.",
+    "description": "서리풀구를 나타내는 구마크입니다.",
     "image": "assets/symbols/district-symbol.svg",
     "alt": "서리풀구 심볼",
-    "details": ["로고와 상징색은 미정입니다. 현재 표시는 교체 가능한 임시 구성입니다."],
+    "details": ["서리풀구의 대표색은 #E61E2B입니다."],
     "downloads": [
       {
         "label": "SVG 다운로드",
@@ -37,18 +37,7 @@ window.SEORIPUL_SYMBOLS={
         "image": "assets/seoripul-hor.svg"
       }
     ],
-    "colors": [
-      {
-        "name": "임시 기본색",
-        "hex": "#2A5CAA",
-        "rgb": "R42 G92 B170"
-      },
-      {
-        "name": "임시 보조색",
-        "hex": "#F04E4C",
-        "rgb": "R240 G78 B76"
-      }
-    ],
+    "colors": [{"name":"서리풀 레드","hex":"#E61E2B","rgb":"R230 G30 B43"}],
     "colorsTitle": "구 상징 색체"
   },
   "brand": {

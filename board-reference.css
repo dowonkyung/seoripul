@@ -311,8 +311,8 @@
   color: #fff;
 }
 .btn-normal.bg-btn-secondary{
-  border: 1px solid #0B50D0;
-  color: #0B50D0;
+  border: 1px solid #E61E2B;
+  color: #E61E2B;
 }
 .btn-normal.btn-black{
   background-color: #222;
@@ -873,7 +873,7 @@
   }
 }
 .content-head .content-title-wrap .content-actions .share-box .share-qr dl dd .link{
-  color: #0B50D0;
+  color: #E61E2B;
   text-decoration: underline;
   position: relative;
   word-break: break-all;
@@ -939,7 +939,7 @@
   }
 }
 .board-wrap .board-body .board-table-head .total strong{
-  color: #0B50D0;
+  color: #E61E2B;
 }
 .board-wrap .board-body .board-table-head.is-right{
   -webkit-box-pack: end;
@@ -1227,8 +1227,8 @@
 }
 .board-wrap .board-body .gallery-type .img .badge.type9{
   color: #fff;
-  background-color: #063A74;
-  border-color: #063A74;
+  background-color: #E61E2B;
+  border-color: #E61E2B;
 }
 .board-wrap .board-body .gallery-type .text{
   width: 100%;
@@ -1432,8 +1432,8 @@
 }
 .board-wrap .board-body .gallery-type .text .etc .badge.type9{
   color: #fff;
-  background-color: #063A74;
-  border-color: #063A74;
+  background-color: #E61E2B;
+  border-color: #E61E2B;
 }
 .board-wrap .board-body .gallery-type .text.type-download > dl > dd{
   -ms-flex-wrap: wrap;
@@ -2164,7 +2164,7 @@
   width: 120px;
 }
 .board-search .filter strong span{
-  color: #0B50D0;
+  color: #E61E2B;
 }
 .board-search .textcolor-information{
   font-size: 15px;
@@ -2185,7 +2185,7 @@
   height: 56px;
   color: #131416;
   font-weight: 700;
-  border-top: 2px solid #005BAD;
+  border-top: 2px solid #E61E2B;
   border-bottom: 1px solid #CDD1D5;
   text-align: center;
   padding: 0 16px;
@@ -2251,7 +2251,7 @@
   text-decoration: underline;
 }
 .board-table tbody td a:not(.btn-normal).link:hover{
-  color: #0B50D0;
+  color: #E61E2B;
   text-decoration: underline;
 }
 .board-table tbody td a:not(.btn-normal).file{

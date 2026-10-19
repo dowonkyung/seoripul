@@ -3,7 +3,7 @@
 .hd-element{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%);white-space:nowrap}
 header ul,.mayor-section ul{list-style:none;padding:0;margin:0}header h1,.mayor-section dl,.mayor-section dd{margin:0}header a{cursor:pointer}header .inner{max-width:1400px;padding:0}header nav{display:block;flex:initial;justify-content:initial}header [hidden]{display:none!important}header .drop-menu:not([hidden]),header .header-search:not([hidden]){display:block}
 .header-top span{background-image:url('assets/saevit-flag.svg');background-size:24px 16px;display:inline-block}
-header .header-middle .bottom-menu .logo h1 a{background-image:url('assets/seoripul-logo.svg');background-position:center;background-size:contain;width:180px;height:50px}
+header .header-middle .bottom-menu .logo h1 a{background-image:url('assets/seoripul-slogan.svg');background-position:center;background-size:contain;width:180px;height:50px}
 header .header-bottom nav>ul{justify-content:flex-start}header .header-bottom nav>ul>li>a{border:0;line-height:1.6}
 header .gnb-wrap{display:none}header #gnb>ul>li.active>.gnb-wrap{display:block}
 header .top-menu .drop-menu{z-index:20;background:white}header .top-menu .drop-menu ul li>a{white-space:nowrap}header .etc-menu img{width:24px;height:24px}header .etc-menu #menuAll img{width:24px;height:24px}header .etc-menu i{display:inline-block;line-height:0}header .header-search input{font:inherit}header .header-search{z-index:30}header .top-menu .parliament img{vertical-align:middle;margin-left:4px}header .zoom-reset img{width:16px;height:16px}
@@ -84,7 +84,7 @@ header .header-middle .etc-menu{align-items:center}
 @media(min-width:1024px){header .header-middle .etc-menu>li{display:flex;align-items:center}header .header-middle .etc-menu .header-search:not([hidden]){align-items:center}}
 
 /* Current municipal page: preserve link color and emphasize weight only. */
-header #gnb:not(:has(>ul>li.active))>ul>li.current-section>a{color:#063A74;font-weight:700}header #gnb .gnb-wrap .wrap>ul>li.current-item.active>a{background:#fff;font-weight:700}header #gnb .gnb-wrap a[aria-current="page"]{font-weight:700;text-decoration:none}header #gnb .depth3-wrap li>a[aria-current="page"]{background:#EEF2F7;border-radius:6px}
+header #gnb:not(:has(>ul>li.active))>ul>li.current-section>a{color:#E61E2B;font-weight:700}header #gnb .gnb-wrap .wrap>ul>li.current-item.active>a{background:#fff;font-weight:700}header #gnb .gnb-wrap a[aria-current="page"]{font-weight:700;text-decoration:none}header #gnb .depth3-wrap li>a[aria-current="page"]{background:#EEF2F7;border-radius:6px}
 
 @media only screen and (min-width:64em){header #gnb .gnb-wrap.type-depth3 .wrap>ul>li>a{font-size:18px}}
 

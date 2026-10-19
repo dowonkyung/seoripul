@@ -17,7 +17,7 @@
 .ci-information{position:relative;margin:24px 0 22px;padding:16px 18px 14px 44px;border:1px solid #d6e0eb;border-radius:7px;background:#eef2f7;font-size:17px;line-height:26px}
 .ci-information::before{content:"i";position:absolute;left:18px;top:21px;width:16px;height:16px;box-sizing:border-box;border:1.5px solid #355d83;border-radius:50%;color:#355d83;font-family:serif;font-size:12px;font-weight:700;line-height:13px;text-align:center}
 .ci-download-wrap{text-align:center;margin-top:24px}
-.ci-download-wrap .ci-download-button{min-width:250px;min-height:50px;border:1px solid var(--point,#246beb);border-radius:6px;background:var(--point,#246beb);color:#fff;font-size:17px;padding:10px 24px;display:inline-flex;align-items:center;justify-content:center;gap:32px;text-decoration:none;cursor:pointer}
+.ci-download-wrap .ci-download-button{min-width:250px;min-height:50px;border:1px solid var(--point,#E61E2B);border-radius:6px;background:var(--point,#E61E2B);color:#fff;font-size:17px;padding:10px 24px;display:inline-flex;align-items:center;justify-content:center;gap:32px;text-decoration:none;cursor:pointer}
 .ci-download-wrap .ci-download-button:hover{color:#fff;text-decoration:none}.ci-download-button span{font-size:22px}
 .ci-download-button:disabled{opacity:.5;cursor:default}
 .policy-preparing{display:grid;place-items:center;min-height:320px;padding:48px 24px;text-align:center;border:1px solid #c6c6c6;border-radius:12px;background:#f8fafc;color:#464c53;font-size:19px;line-height:1.6}.policy-preparing p{margin:0}
