@@ -32,9 +32,13 @@
       "active": []
     },
     "press": {
-      "next": 1,
-      "posts": {},
-      "active": []
+      "next": 2,
+      "posts": {
+        "6e5f95b9-1ed1-4e06-a3aa-ba4e1b69ba56": 1
+      },
+      "active": [
+        "6e5f95b9-1ed1-4e06-a3aa-ba4e1b69ba56"
+      ]
     },
     "briefing": {
       "next": 1,
