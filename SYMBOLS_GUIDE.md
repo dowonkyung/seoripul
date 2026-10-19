@@ -11,3 +11,8 @@
 설명·색상은 symbols-config.js의 mark 항목을 사용합니다. 자동 갱신 작업이 scripts/sync-navigation.cjs를 실행하면 CI 본문이 재생성됩니다. 로컬에서도 같은 명령으로 갱신할 수 있습니다.
 
 파일이 없는 동안 이미지 박스는 비워두고 AI 다운로드 버튼은 비활성화합니다. 다운로드 선택창은 사용하지 않습니다. 방침 페이지는 계속 준비 중으로 표시합니다.
+
+
+## 구정방침
+
+`symbols-config.js`의 `policy`에서 이미지(`image`), 설명(`description`), 단일 AI 다운로드 파일(`aiFile`)을 지정합니다. 기본 경로는 `assets/policy/policy.png`와 `assets/policy/policy.ai`입니다. 설명 줄바꿈은 `\n`을 사용합니다. 파일을 업로드하면 자동 생성 작업이 페이지에 반영합니다.

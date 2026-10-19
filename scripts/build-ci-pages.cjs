@@ -16,6 +16,18 @@ function build(root){
  if(!source.includes('<!-- ci-content:start -->')||!source.includes('<!-- ci-content:end -->'))throw Error('CI content markers missing');
  source=source.replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+esc(name)+'의 심벌마크(CI), 로고타입과 색상기준을 소개합니다.">').replace(/<script src="ci\.js(?:\?[^"]*)?" defer><\/script>/,'');
  fs.writeFileSync(file,source.replace(/<!-- ci-content:start -->[\s\S]*?<!-- ci-content:end -->/,'<!-- ci-content:start -->'+html+'<!-- ci-content:end -->'));
+ const policy=config.policy||{},policyTitle=site==='geumseong'?'도정방침':'구정방침';
+ const policyAI=asset(policy.aiFile),policyDownload=policyAI?'<a class="ci-download-button" href="'+esc(policyAI)+'" download="'+esc(path.basename(policyAI))+'">CI 자료 내려받기 <span aria-hidden="true">↓</span></a>':'<button type="button" class="ci-download-button" disabled aria-disabled="true" title="AI 파일 준비 중">CI 자료 내려받기 <span aria-hidden="true">↓</span></button>';
+ const policyHTML='<div class="ci-reference policy-reference">'+imageBox(policy.image,policyTitle)+'<p class="policy-description">'+esc(policy.description||policyTitle+' 설명을 준비하고 있습니다.')+'</p><div class="ci-download-wrap">'+policyDownload+'</div></div>';
+ const policyFile=path.join(root,'policy.html');
+ if(fs.existsSync(policyFile)){
+  let page=fs.readFileSync(policyFile,'utf8');
+  if(!page.includes('<!-- policy-content:start -->'))page=page.replace(/<section class="policy-preparing"[\s\S]*?<\/section>/,'<!-- policy-content:start --><!-- policy-content:end -->');
+  if(!page.includes('<!-- policy-content:start -->')||!page.includes('<!-- policy-content:end -->'))throw Error('Policy content markers missing');
+  page=page.replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+esc(name+' '+policyTitle+' 안내 및 자료 다운로드.')+'">');
+  fs.writeFileSync(policyFile,page.replace(/<!-- policy-content:start -->[\s\S]*?<!-- policy-content:end -->/,'<!-- policy-content:start -->'+policyHTML+'<!-- policy-content:end -->'));
+ }
+
 }
 module.exports=build;if(require.main===module)build(path.resolve(__dirname,'..'));
 

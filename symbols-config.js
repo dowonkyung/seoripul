@@ -1,5 +1,10 @@
 // 이미지 경로·설명·다운로드 파일을 이곳에서 교체하세요.
 window.SEORIPUL_SYMBOLS={
+  "policy": {
+  "image": "assets/policy/policy.png",
+  "description": "구정방침 설명을 준비하고 있습니다.",
+  "aiFile": "assets/policy/policy.ai"
+},
   // 이 경로에 이미지를 올리면 두 박스에 각각 한 장씩 표시됩니다.
   "ci": {
   "symbolImage": "assets/ci/symbol-mark.png",

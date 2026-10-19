@@ -25,3 +25,5 @@
 @media(max-width:640px){.ci-reference{font-size:15px;line-height:24px;margin-bottom:40px}.ci-reference .ci-image-box{padding:20px}.ci-reference .ci-image-box:empty{min-height:180px}.ci-reference .ci-logotype-box:empty{min-height:120px}.ci-page .ci-reference h3{font-size:22px;line-height:32px;margin-top:48px}.ci-reference .ci-color-wrap{grid-template-columns:1fr;gap:20px;padding:20px}.ci-color-content>strong{font-size:18px;margin:20px 0 10px}.ci-color-content ul,.ci-information{font-size:15px;line-height:24px}.ci-download-wrap .ci-download-button{min-width:220px;font-size:16px}.policy-preparing{min-height:240px;font-size:17px}}
 @media print{.ci-download-wrap{display:none}.ci-reference .ci-image-box,.ci-reference .ci-color-wrap{break-inside:avoid}}
 
+
+.ci-reference .policy-description{margin:24px 0;white-space:pre-line;font-size:inherit;line-height:inherit;color:inherit}
