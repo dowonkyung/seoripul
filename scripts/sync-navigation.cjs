@@ -11,6 +11,7 @@ const file=path.join(root,name),original=fs.readFileSync(file,'utf8');let html=o
 if(!assets.some(asset=>html.includes(asset)))continue;
 if(!html.includes('src="post-routes.js'))html=html.replace(/<script\b/,'<script src="post-routes.js" defer></script><script');
 if(!html.includes('navigation-config.js'))html=html.replace(/<script\b/,'<script src="navigation-config.js" defer></script><script');
+html=html.replace(/<a\b[^>]*data-page="금성도"[^>]*>/g,'<a href="https://geumseong.saevit.online/" target="_blank" rel="noopener noreferrer">');
 const side=navigation.renderSide(name);
 if(side)html=html.replace(/<nav class="lnb-list"[^>]*>[\s\S]*?<\/nav>/,'<nav class="lnb-list" aria-label="'+navigation.sideFor(name).section+' 하위 메뉴">'+side+'</nav>');
 if(html.includes('lnb-list')&&!html.includes('href="lnb.css'))html=html.replace('</head>','<link rel="stylesheet" href="lnb.css"></head>');
