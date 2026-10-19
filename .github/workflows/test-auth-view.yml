@@ -1,0 +1,18 @@
+name: Validate stable authentication views
+on:
+  push:
+    paths: ['header-auth.js', 'community.js', 'scripts/test-auth-view-stability.cjs', '.github/workflows/test-auth-view.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  auth-view:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check header-auth.js
+      - run: node --check community.js
+      - run: node scripts/test-auth-view-stability.cjs

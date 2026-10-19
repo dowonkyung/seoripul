@@ -16,6 +16,7 @@
  function mode(value){const isSignup=value==='signup';form.hidden=isSignup;signup.hidden=!isSignup;tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.authMode===value)));error.textContent='';signupResult.textContent='';dialog.querySelector(isSignup?'#signup-name':'#admin-email').focus()}
  tabs.addEventListener('click',e=>{const b=e.target.closest('[data-auth-mode]');if(b)mode(b.dataset.authMode)});
  signup.querySelector('[data-signup-close]').onclick=()=>dialog.close();
+ let publishedAuthKey=null;
  function render(){
   document.querySelectorAll('.etc-menu .login a,.mobile-login a').forEach(a=>{
    a.removeAttribute('data-page');a.href='#login';const label=a.querySelector('span');
@@ -23,7 +24,8 @@
    a.setAttribute('aria-label',state.user?'로그아웃':'로그인');
   });
   if(!state.admin&&management.open)management.close();
-  window.dispatchEvent(new CustomEvent('header-auth-change',{detail:state}));
+  const authKey=JSON.stringify([state.user?.id||null,Boolean(state.admin),state.user?.email||'',state.member?.status||'',state.member?.display_name||'']);
+  if(authKey!==publishedAuthKey){publishedAuthKey=authKey;window.dispatchEvent(new CustomEvent('header-auth-change',{detail:state}))}
  }
  async function refresh(){
   const version=++refreshVersion;let next={user:null,admin:false},block='';
