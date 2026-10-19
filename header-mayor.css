@@ -87,3 +87,8 @@ header .header-middle .etc-menu{align-items:center}
 header #gnb:not(:has(>ul>li.active))>ul>li.current-section>a{color:#063A74;font-weight:700}header #gnb .gnb-wrap .wrap>ul>li.current-item.active>a{background:#fff;font-weight:700}header #gnb .gnb-wrap a[aria-current="page"]{font-weight:700;text-decoration:none}header #gnb .depth3-wrap li>a[aria-current="page"]{background:#EEF2F7;border-radius:6px}
 
 @media only screen and (min-width:64em){header #gnb .gnb-wrap.type-depth3 .wrap>ul>li>a{font-size:18px}}
+
+/* Official site notice typography. */
+header .header-top span{font-size:14px}
+@media(max-width:767px){header .header-top span{font-size:13px}}
+@media(max-width:360px){header .header-top span{font-size:12px}}
