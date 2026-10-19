@@ -17,7 +17,7 @@ function build(root){
  const downloadMap=new Map();for(const item of [...(mark.downloads||[]),...signatures.map(s=>({label:s.label+' 다운로드',href:s.image}))])if(safe(item.href)&&!downloadMap.has(item.href))downloadMap.set(item.href,item.label||'다운로드');
  const downloads='<dialog class="ci-download-dialog" id="ci-download-dialog"><h2>CI 자료 내려받기</h2><ul>'+[...downloadMap].map(([href,label])=>'<li><a href="'+esc(href)+'" download>'+esc(label)+'</a></li>').join('')+'</ul><button type="button" data-ci-download-close>닫기</button></dialog>';
  const html='<div class="ci-reference">'+artwork+'<ul class="ci-description">'+(mark.details||[mark.description]).filter(Boolean).map(text=>'<li>'+esc(text)+'</li>').join('')+'</ul><h3>로고타입</h3>'+logotypes+'<h3>색상기준</h3>'+colorHTML+'<div class="ci-information">심벌마크와 로고 자료를 아래 버튼에서 내려받을 수 있습니다.</div><div class="ci-download-wrap"><button type="button" class="ci-download-button" data-ci-download-open>CI 자료 내려받기 <span aria-hidden="true">↓</span></button></div>'+downloads+'</div>';
- const file=path.join(root,'ci.html'),source=fs.readFileSync(file,'utf8');
+ const file=path.join(root,'ci.html'),source=fs.readFileSync(file,'utf8').replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+esc(name)+'의 심벌마크(CI), 로고타입과 색상기준을 소개합니다.">');
  if(!source.includes('<!-- ci-content:start -->')||!source.includes('<!-- ci-content:end -->'))throw Error('CI content markers missing');
  fs.writeFileSync(file,source.replace(/<!-- ci-content:start -->[\s\S]*?<!-- ci-content:end -->/,'<!-- ci-content:start -->'+html+'<!-- ci-content:end -->'));
 }
