@@ -1,0 +1,23 @@
+/* Match the Angangjin song score frame, preserving the supplied A4 ratio. */
+.policy-reference .ci-image-box{border-radius:12px;border:1px solid #b1b8be;padding:27px;text-align:center;margin-top:20px;position:relative;background:#fff}
+.policy-reference .ci-image-box>.ci-provided-image{display:block;width:100%;max-width:600px;height:auto;margin:0 auto}
+.identity-edit-button{display:block;margin:24px 0 24px auto;padding:10px 20px;border:1px solid #8a949e;border-radius:6px;background:#fff;font:inherit;cursor:pointer}
+.identity-edit-button[hidden]{display:none!important}
+.identity-editor{width:760px;max-width:calc(100vw - 32px);max-height:90dvh;box-sizing:border-box;border:0;border-radius:16px;padding:28px;color:#1e2124;background:#fff;font:inherit}
+.identity-editor::backdrop{background:#0008}
+.identity-editor h2{font-size:24px;margin:0 0 24px}
+.identity-editor .identity-field{display:block;margin:20px 0;font-weight:700}
+.identity-editor textarea{display:block;width:100%;max-width:100%;margin-top:8px;padding:12px;border:1px solid #8a949e;border-radius:6px;font:inherit;font-weight:400;box-sizing:border-box;resize:vertical}
+.identity-editor input:focus-visible,.identity-editor textarea:focus-visible{outline:3px solid #111;outline-offset:0}
+.identity-file{min-width:0;margin:18px 0;padding:16px;border:1px solid #cdd1d5;border-radius:8px}
+.identity-file legend{padding:0 8px;font-weight:700}
+.identity-file input[type=file]{max-width:100%;font:inherit}
+.identity-preview{display:block;max-width:100%;max-height:160px;width:auto;height:auto;margin:0 auto 12px}
+.identity-remove{display:flex;align-items:center;gap:8px;margin-top:12px}
+.identity-remove input{width:18px;height:18px}
+.identity-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:24px}
+.identity-actions button{padding:10px 22px;border:1px solid #8a949e;border-radius:6px;font:inherit;background:#fff}
+.identity-actions button[type=submit]{background:var(--point);border-color:var(--point);color:#fff}
+.identity-actions button:disabled{opacity:.5;cursor:wait}
+.identity-status{white-space:pre-line;overflow-wrap:anywhere;line-height:1.6}
+@media(max-width:767px){.identity-editor{padding:20px}.identity-file{padding:12px}}
