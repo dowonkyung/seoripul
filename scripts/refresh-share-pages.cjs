@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),vm=require('vm'),crypto=require('crypto'),pages=require('./post-pages.cjs');
-const root=path.resolve(__dirname,'..'),site="seoripul",origin='https://'+site+'.saevit.online',fallback=origin+'/assets/og-'+site+'.png';
+const root=path.resolve(__dirname,'..'),site="seoripul",origin='https://'+site+'.saevit.online',fallback=origin+'/assets/og-seoripul-header-20261020.png';
 const ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'board-config.js'),'utf8'),ctx);const config=ctx.window[site.toUpperCase()+'_BOARD_CONFIG'];
 const sdk=vm.runInThisContext(fs.readFileSync(path.join(root,'assets/vendor/supabase.js'),'utf8')+';supabase'),client=sdk.createClient(config.supabaseUrl,config.publishableKey,{auth:{persistSession:false,autoRefreshToken:false}}),prefix='seoripul_',bucketPrefix='seoripul-',files=new Map(),imageCache=new Map();
 async function read(table,columns,published=false){const result=[];for(let offset=0;;offset+=500){let query=client.from(prefix+table).select(columns).order('id').range(offset,offset+499);if(published)query=query.eq('status','published');const r=await query;if(r.error){if(['42P01','PGRST205'].includes(r.error.code))return [];throw Error(table+': '+r.error.message)}result.push(...r.data);if(r.data.length<500)return result}}
